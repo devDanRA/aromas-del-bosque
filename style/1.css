@@ -1,0 +1,19 @@
+/*Sección noticias style*/
+article{
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.noticia{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 2px solid #f0ece7;
+    padding: 10px;
+    border-radius: 10px;
+}

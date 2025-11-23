@@ -23,6 +23,15 @@ header {
     flex-direction: column;
 }
 
+/*color de encabezados*/
+h1 {
+    color: #595959;
+}
+
+h2 {
+    color: #999666;
+}
+
 #marca {
     display: flex;
     justify-content: space-between;
