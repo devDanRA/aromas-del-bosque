@@ -1,5 +1,4 @@
-/*Sección noticias style*/
-article{
+article {
     width: 90%;
     height: auto;
     margin: 0 auto;
@@ -7,7 +6,167 @@ article{
     flex-direction: column;
     gap: 15px;
 }
-.noticia{
+
+/*Sección 1 Sobre la Marca*/
+#sobre-marca {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+#info-marca {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/*Imagen derecha*/
+.img-der {
+    z-index: 10;
+    flex: 40%;
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px #00000020;
+}
+
+.img-der img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/*Texto marca*/
+.texto-marca {
+    flex: 50%;
+    position: relative;
+    right: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 10px;
+    padding: 10px;
+    background-color: #f0ece785;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #00000020;
+}
+
+/*Sección2 Productos destacados*/
+#destacado {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100%;
+    gap: 50px;
+}
+
+.nota {
+    font-size: 14px;
+    font-style: italic;
+    background-color: #f0ece785;
+    padding: 5px;
+    margin: 0 20%;
+}
+
+#prod-destacados {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.prodest {
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.prodest img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #00000020;
+}
+
+.prodest a {
+    text-decoration: none;
+    color: #000;
+}
+
+.prodest p {
+    padding: 0 5px;
+    background-color: #f0ece785;
+    border-radius: 5px;
+    position: relative;
+}
+
+/*Sección3 Comentarios*/
+#comentarios {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100%;
+    gap: 10px;
+}
+
+.tarjeta {
+    width: 700px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #f0ece7;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tarjeta img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.mensaje {
+    display: flex;
+    width: 90%;
+    height: auto;
+    border: 2px solid #f0ece7;
+    border-radius: 5px;
+    padding: 10px;
+    gap: 5px;
+}
+
+.mensaje img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/*Sección noticias style*/
+#noticias {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: auto;
+    width: 100%;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+.noticia {
     width: 100%;
     height: auto;
     display: flex;

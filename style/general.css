@@ -24,12 +24,16 @@ header {
 }
 
 /*color de encabezados*/
-h1 {
+h1,
+h2 {
     color: #595959;
 }
 
-h2 {
-    color: #999666;
+h3,
+h4,
+h5,
+h6 {
+    color: #999966;
 }
 
 #marca {
@@ -130,8 +134,17 @@ nav {
     width: 100%;
     height: auto;
     background-color: #f0ece7;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
 #nav-bar ul {
     display: flex;
     justify-content: center;
@@ -150,7 +163,12 @@ nav {
     font-size: 20px;
     font-weight: bold;
 }
+.active{
+    color: #999966;
+    
+    scale: 1.1;
 
+}
 /*Main Style*/
 main {
     width: 100%;
@@ -165,9 +183,10 @@ main {
 
 section {
     width: 90%;
-    height: 100vh;
+    height: 1fr;
     align-items: center;
     justify-content: center;
+    padding: 10px;
 }
 
 /*Footer Styles*/
@@ -179,8 +198,6 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px 0;
-    gap: 10px;
 }
 
 #inicio {

@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aromas del Bosque</title>
     <link rel="shortcut icon" href="assets/icons/icon-logo.svg" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="style/general.css">
     <link rel="stylesheet" href="style/1.css">
 </head>
 
 <body>
+    <!--Scripts-->
+    <script src="js/JavaS.js"></script>
     <!--Encabezado-->
     <header>
         <!--Imagen de la Marca y Contacto-->
@@ -37,7 +40,7 @@
         <!--Barra de Navegación-->
         <nav id="nav-bar">
             <ul>
-                <li class="link"><a href="#">Home</a></li>
+                <li class="link"><a href="#" class="">Home</a></li>
                 <li class="link"><a href="views/galeria.html">Productos</a></li>
                 <li class="link"><a href="views/presupuesto.html">Información</a></li>
                 <li class="link"><a href="views/contacto.html">Contacto</a></li>
@@ -46,9 +49,120 @@
     </header>
     <!--Contenido Principal-->
     <main>
-        <!--Sección de Noticias-->
-        <h1>Noticias de Aromas del Blosque</h1>
-        <section id="noticias"></section>
+        <!--Sección 1 Sobre la Marca-->
+        <section id="sobre-marca">
+            <h1>Sobre Aromas del Bosque</h1>
+            <article id="info-marca">
+                <div class="img-der"><img src="assets/galery/Noticias/pexels-anna-pou-8330249.jpg"
+                        alt="Una tetera con infusión de hierbas" title="Una tetera con infusión de hierbas" width="400"
+                        height="300"></div>
+                <div class="texto-marca">
+                    <h2>Infusiones creadas con ingredientes puros y seleccionados</h2>
+                    <p>En Aromas del Bosque trabajamos con hierbas, flores y especias de origen natural, seleccionadas
+                        cuidadosamente para
+                        crear mezclas equilibradas y llenas de aroma. Utilizamos ingredientes como rooibos, té verde, té
+                        negro, frutos
+                        deshidratados, canela, jengibre, lavanda o pétalos de rosa, siempre priorizando proveedores
+                        locales
+                        y producciones
+                        responsables.</p>
+                </div>
+
+            </article>
+        </section>
+        <!--Sección 2 Productos destacados-->
+        <section id="destacado">
+            <h2>Nuestras Mezclas Destacadas</h2>
+            <div class="nota">
+                <h3>Sabores que enamoran a primera taza</h3>
+                <p>Estas son algunas de nuestras infusiones más queridas por los clientes. Cada mezcla está elaborada
+                    con
+                    ingredientes
+                    naturales y combinaciones pensadas para crear experiencias únicas. Nos gusta equilibrar aroma, sabor
+                    y
+                    propiedades
+                    para
+                    que cada taza sea especial.</p>
+            </div>
+            <article id="prod-destacados">
+                <div class="prodest">
+                    <img src="assets/galery/Galería/1.png" alt="bolsas de papel contenedoras de infusión"
+                        title="bolsas de papel contenedoras de infusión" width="300" height="300">
+                    <a href="views/galeria.html">
+                        <h4>Infusión Floral Serenidad</h4>
+                    </a>
+                    <p>Elaborada con lavanda, manzanilla y pétalos de rosa. Una mezcla calmante que ayuda a desconectar
+                        del
+                        día.</p>
+                </div>
+                <div class="prodest">
+                    <img src="assets/galery/Galería/6.png" alt="bolsas de papel contenedoras de infusión"
+                        title="bolsas de papel contenedoras de infusión" width="300" height="300">
+                    <a href="views/galeria.html">
+                        <h4>Rooibos Miel & Canela</h4>
+                    </a>
+                    <p>Mezcla cálida y suave, perfecta para relajarse. Ideal para tomar por la noche, sin teína.</p>
+                </div>
+                <div class="prodest">
+                    <img src="assets/galery/Galería/3.png" alt="bolsas de papel contenedoras de infusión"
+                        title="bolsas de papel contenedoras de infusión" width="300" height="300">
+                    <a href="views/galeria.html">
+                        <h4>Té Verde Citrus Fresh</h4>
+                    </a>
+                    <p>Combinación refrescante de té verde, piel de limón y naranja. Aporta energía suave y un aroma
+                        cítrico
+                        delicioso.
+                    </p>
+                </div>
+            </article>
+        </section>
+        <!--Sección 3 Comentarios-->
+        <section id="comentarios">
+            <h2>Opiniones de Nuestros Clientes</h2>
+            <div class="tarjeta">
+                <img src="assets/galery/Noticias/pexels-tetería.jpg" alt="dependiente atendiendo a un cliente"
+                    title="dependiente atendiendo a un cliente" width="300" height="200">
+                <article>
+                    <h3>Lo que nuestros clientes dicen de nosotros</h3>
+                    <p>Nada nos alegra más que saber que nuestras infusiones forman parte de los momentos especiales de
+                        quienes las disfrutan.
+                        Estas son algunas opiniones de clientes que han probado nuestras mezclas y quieren compartir su
+                        experiencia.</p>
+                </article>
+            </div>
+            <div class="mensaje">
+                <img src="assets/icons/user-circle-svgrepo-com.svg" alt="icno de usuario" title="icono de usuario"
+                    width="100" height="100">
+                <div>
+                    <h4>María R.</h4>
+                    <p>“La infusión Floral Serenidad es mi favorita. Tiene un aroma increíble y me ayuda muchísimo a
+                        relajarme después del
+                        trabajo.”</p>
+                </div>
+            </div>
+            <div class="mensaje">
+                <img src="assets/icons/user-circle-svgrepo-com.svg" alt="icno de usuario" title="icono de usuario"
+                    width="100" height="100">
+                <div>
+                    <h4>Carlos P.</h4>
+                    <p>“Descubrí Aromas del Bosque en una feria y ahora no compro infusiones en ningún otro sitio. El
+                        Rooibos Miel & Canela es
+                        espectacular.”</p>
+                </div>
+            </div>
+            <div class="mensaje">
+                <img src="assets/icons/user-circle-svgrepo-com.svg" alt="icno de usuario" title="icono de usuario"
+                    width="100" height="100">
+                <div>
+                    <h4>Elena G.</h4>
+                    <p>“Me encanta que todos los ingredientes sean naturales. Se nota la frescura y el mimo con el que
+                        preparan cada mezcla.”</p>
+                </div>
+            </div>
+        </section>
+        <!--Sección 4  Noticias-->
+        <h2>Noticias de Aromas del Blosque</h1>
+            <section id="noticias"></section>
 
     </main>
     <footer>
@@ -90,8 +204,7 @@
         <img src="assets/brand/3.png" alt="Nombre de la empresa" title="Aroma del Bosque" width="200" height="200">
         <p>&copy; 2025 Aromas del Bosque. Todos los derechos reservados.</p>
     </footer>
-    <!--Scripts-->
-    <script src="js/JavaS.js"></script>
+
 </body>
 
 </html>
