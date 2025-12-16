@@ -1,8 +1,11 @@
 //añadir json al local storage
 const noticiasSection = document.querySelector('#noticias');
-fetch('./js/noticias.json')
+const rutaJson = 'assets/noticias.json';
+fetch(rutaJson)
     .then(res => res.json())
     .then(noticias => {
+        console.log(noticias);
+
         noticias.forEach(post => {
             noticiasSection.innerHTML += `
                     <article class="noticia">
