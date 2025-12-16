@@ -14,6 +14,11 @@
 <body>
     <!--Scripts-->
     <script src="js/JavaS.js"></script>
+    <script>
+        window.onload = function () {
+            document.getElementById("act").style.textDecoration = "underline #999966";
+        }
+    </script>
     <!--Encabezado-->
     <header>
         <!--Imagen de la Marca y Contacto-->
@@ -40,7 +45,7 @@
         <!--Barra de Navegación-->
         <nav id="nav-bar">
             <ul>
-                <li class="link"><a href="#" class="">Home</a></li>
+                <li class="link"><a href="#" id="act">Home</a></li>
                 <li class="link"><a href="views/galeria.html">Productos</a></li>
                 <li class="link"><a href="views/presupuesto.html">Información</a></li>
                 <li class="link"><a href="views/contacto.html">Contacto</a></li>

@@ -122,8 +122,6 @@ article {
     z-index: 8;
     bottom: 100px;
     opacity: 0;
-    transition: all 0.3s ease-in-out;
-
 }
 
 /*Animación*/

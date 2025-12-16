@@ -21,8 +21,4 @@ $(window).on("scroll", function () {
         $('#nav-bar').removeClass('fixed-nav');
     }
 });
-//mantener activo un enlace del menú
-$('#nav-bar a').on('click', function () {
-    $('#nav-bar a').removeClass('active');
-    $(this).addClass('active');
-});
+
