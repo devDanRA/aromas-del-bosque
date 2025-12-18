@@ -57,6 +57,15 @@ article {
     transition: all 0.3s ease-in-out;
 }
 
+.texto-marca h2 {
+    margin: 0;
+}
+
+.texto-marca p {
+    text-align: justify;
+    margin: 0 20px;
+}
+
 /*Animación*/
 #info-marca:hover .texto-marca {
     z-index: 11;
@@ -197,7 +206,7 @@ article {
 }
 
 .noticia {
-    width: 100%;
+    width: 70%;
     height: auto;
     display: flex;
     flex-direction: column;

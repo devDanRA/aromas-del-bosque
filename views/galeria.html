@@ -7,16 +7,10 @@
     <title>Aromas del Bosque</title>
     <link rel="shortcut icon" href="../assets/icons/icon-logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="../style/general.css">
+    <link rel="stylesheet" href="../style/2.css">
 </head>
 
 <body>
-    <!--Scripts-->
-    <script src="../js/JavaS.js"></script>
-    <script>
-        window.onload = function () {
-            document.getElementById("act").style.textDecoration = "underline #999966";
-        }
-    </script>
     <!--Encabezado-->
     <header>
         <!--Imagen de la Marca y Contacto-->
@@ -52,7 +46,101 @@
     </header>
     <main>
         <!--Contenido Principal-->
+        <!--Slider-->
+            <div id="slider">
+                <div id="slider-inner">
+                    <!--Imagen1-->
+                    <img src="../assets/galery/Noticias/pexels-anna-pou-8330249.jpg" alt="tetera con varias infusiones">
+                    <!--Imagen2-->
+                    <img src="../assets/galery/Noticias/pexels-rdne-7978766.jpg" alt="infusión en un cuenco de metal">
+                    <!--Imagen3-->
+                    <img src="../assets/galery/Noticias/pexels-seferikalbiye-45418505-16244203.jpg"
+                        alt="infusión de té en una taza de cristal">
+                    <!--Imagen4-->
+                    <img src="../assets/galery/Noticias/pexels-tara-winstead-6694156.jpg"
+                        alt="preparado de infusiones en una cuchara de madera">
+                    <!--Imagen5-->
+                    <img src="../assets/galery/Noticias/pexels-teteria.jpg" alt="Tetería recibiendo clientes">
+                </div>
+            </div>
+        <!--Galería de Productos-->
+        <section>
+            <div id="img-cont">
+                <div class="prod">
+                    <img src="../assets/galery/Galeria/g1.png" alt="infusión de manzanilla"
+                        title="infusión de manzanilla">
+                    <h4>Infusión de Manzanilla</h4>
+                    <p>desde 5,78 €</p>
+                </div>
+                <div class="prod">
+                    <img src="../assets/galery/Galeria/g2.png" alt=" infusión de menta" title="infusión de menta">
+                    <h4>Infusión de Menta</h4>
+                    <p>desde 5,78 €</p>
+                </div>
+                <div class="prod">
+                    <img src="../assets/galery/Galeria/g3.png" alt=" infusión de tila" title="infusión de tila">
+                    <h4>Infusión de Tila</h4>
+                    <p>desde 5,78 €</p>
+                </div>
+                <div class="prod">
+                    <img src="../assets/galery/Galeria/g4.png" alt=" infusión de jengibre" title="infusión de jengibre">
+                    <h4>Infusión de Jengibre</h4>
+                    <p>desde 7,30 €</p>
+                </div>
+                <div class="prod">
+                    <img src="../assets/galery/Galeria/g5.png" alt=" infusión de rooibos" title="infusión de rooibos">
+                    <h1>Infusión de Rooibos</h1>
+                    <p>desde 7,30 €</p>
+                </div>
+                <div class="prod">
+                    <img src="../assets/galery/Galeria/g6.png" alt=" infusión de lavanda" title="infusión de lavanda">
+                    <h1>Infusión de Lavanda</h1>
+                    <p>desde 8,99 €</p>
+                </div>
+                <div class="prod">
+                    <img src="../assets/galery/Galeria/g7.png" alt=" infusión de hibisco" title="infusión de hibisco">
+                    <h1>Infusión de Hibisco</h1>
+                    <p>desde 8,99 €</p>
+                </div>
+                <div class="prod">
+                    <img src="../assets/galery/Galeria/g8.png" alt=" infusión de valeriana"
+                        title="infusión de valeriana">
+                    <h1>Infusión de Valeriana</h1>
+                    <p>10,00 €</p>
+                </div>
+                <div class="prod">
+                    <img src="../assets/galery/Galeria/g9.png" alt=" infusión de ginseng" title="infusión de ginseng">
+                    <h1>Infusión de ginseng</h1>
+                    <p>10,00 €</p>
+                </div>
+                <div class="prod">
+                    <img src="../assets/galery/Galeria/g10.png" alt=" infusión de diente de león"
+                        title="infusión de diente de león">
+                    <h1>Infusión de Diente de León</h1>
+                    <p>10,00 €</p>
+                </div>
+            </div>
+        </section>
+        <!--Scripts-->
+        <script>
+            const slinner = document.querySelector('#slider-inner');
+            const img = document.querySelectorAll('#slider-inner img');
+            let idx = 0;
 
+            setInterval(function () {
+                let nextIdx = idx * -100;
+                slinner.style.transform = `translateX(${nextIdx}%)`;
+                idx++;
+                if (idx > img.length - 1) {
+                    idx = 0;
+                }
+            }, 5000);
+        </script>
+        <script>
+            window.onload = function () {
+                document.getElementById("act").style.textDecoration = "underline #999966";
+            }
+        </script>
     </main>
     <footer>
         <div id="inicio">
