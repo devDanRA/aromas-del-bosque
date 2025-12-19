@@ -1,3 +1,4 @@
+/* Estilos para el slider de imágenes */
 #slider-inner {
     display: flex;
     flex-direction: row;
@@ -21,3 +22,34 @@ img {
     aspect-ratio: 16/9;
     object-fit: cover;
 }
+
+/* Estilos para la galería de productos */
+#img-cont {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 500px);
+    grid-template-rows: repeat(5, 500px);
+    justify-content: center;
+    gap: 30px;
+}
+.prod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.prod img {
+    border-radius: 30px;
+    object-fit: cover;
+    width: 400px;
+    height: 400px;
+}
+.prod h4{
+    margin: 10px 0 5px 0;
+}
+.prod p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
