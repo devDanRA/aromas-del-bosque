@@ -1,11 +1,9 @@
 //añadir json al local storage
 const noticiasSection = document.querySelector('#noticias');
-const rutaJson = 'assets/noticias.json';
+const rutaJson = '../assets/data/noticias.json';
 fetch(rutaJson)
     .then(res => res.json())
     .then(noticias => {
-        console.log(noticias);
-
         noticias.forEach(post => {
             noticiasSection.innerHTML += `
                     <article class="noticia">
@@ -18,7 +16,7 @@ fetch(rutaJson)
     });
 // Navegación fija al hacer scroll
 $(window).on("scroll", function () {
-    if ($(window).scrollTop() > 140) {
+    if ($(window).scrollTop() > 130) {
         $('#nav-bar').addClass('fixed-nav');
     } else {
         $('#nav-bar').removeClass('fixed-nav');

@@ -1,55 +1,44 @@
-/* Estilos para el slider de imágenes */
-#slider-inner {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    height: 400px;
-    transition: transform 0.5s ease-in-out;
-    align-items: center;
-}
-
-img {
-    width: 100%;
-}
-
-#slider {
-    overflow: hidden;
-    width: 100%;
-    border-radius: 30px;
-}
-
-#slider-inner img {
-    aspect-ratio: 16/9;
-    object-fit: cover;
-}
-
-/* Estilos para la galería de productos */
-#img-cont {
-    width: 100%;
+.grid {
     display: grid;
-    grid-template-columns: repeat(2, 500px);
-    grid-template-rows: repeat(5, 500px);
-    justify-content: center;
-    gap: 30px;
+    gap: 40px;
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: repeat(3, 300px);
+    margin: 40px;
 }
-.prod {
+
+.card-galery {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 10px;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.prod img {
-    border-radius: 30px;
+.card-galery:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: all 0.1s ease;
+}
+
+.card-img {
+    height: 230px;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
     object-fit: cover;
-    width: 400px;
-    height: 400px;
-}
-.prod h4{
-    margin: 10px 0 5px 0;
-}
-.prod p {
-    font-size: 14px;
-    font-weight: bold;
 }
 
+.card-galery h3,
+.card-galery p {
+    margin: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}

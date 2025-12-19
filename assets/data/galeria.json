@@ -1,0 +1,47 @@
+[
+    {
+        "img": "../assets/galery/galeria/g1.png",
+        "title": "Infusión de Manzanilla Natural",
+        "price": "2,50 €"
+    },
+    {
+        "img": "../assets/galery/Galeria/g2.png",
+        "title": "Infusión de Té Verde Suave",
+        "price": "2,80 €"
+    },
+    {
+        "img": "../assets/galery/Galeria/g3.png",
+        "title": "Infusión de Frutos Rojos",
+        "price": "3,00 €"
+    },
+    {
+        "img": "../assets/galery/Galeria/g4.png",
+        "title": "Infusión de Menta y Poleo",
+        "price": "2,40 €"
+    },
+    {
+        "img": "../assets/galery/Galeria/g5.png",
+        "title": "Infusión de Rooibos Vainilla",
+        "price": "3,20 €"
+    },
+    {
+        "img": "../assets/galery/Galeria/g6.png",
+        "title": "Infusión Digestiva de Anís",
+        "price": "2,60 €"
+    },
+    {
+        "img": "../assets/galery/Galeria/g8.png",
+        "title": "Infusión Relax de Tila",
+        "price": "2,70 €"
+    },
+    {
+        "img": "../assets/galery/Galeria/g9.png",
+        "title": "Infusión Cítrica de Limón y Jengibre",
+        "price": "3,10 €"
+    },
+    {
+        "img": "../assets/galery/Galeria/g10.png",
+        "title": "Infusión Floral de Hibisco",
+        "price": "2,90 €"
+    }
+]
