@@ -22,5 +22,9 @@ $(window).on("scroll", function () {
         $('#nav-bar').removeClass('fixed-nav');
     }
 });
+// Subrayar el enlace activo en el menú de navegación
+window.onload = function () {
+    document.getElementById("act").style.textDecoration = "underline #999966";
+}
 
 
