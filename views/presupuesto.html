@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aromas del Bosque</title>
     <link rel="shortcut icon" href="../assets/icons/icon-logo.svg" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="../style/general.css">
+    <link rel="stylesheet" href="../style/3.css">
 </head>
 
 <body>
@@ -39,16 +41,17 @@
             <ul>
                 <li class="link"><a href="../index.html">Home</a></li>
                 <li class="link"><a href="galeria.html">Productos</a></li>
-                <li class="link"><a href="#" id="act">Información</a></li>
+                <li class="link"><a href="#" id="act">Presupuesto</a></li>
                 <li class="link"><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <!--Contenido Principal-->
+        <h1>Solicitud de Presupuesto Personalizado</h1>
         <form>
             <!--Datos de contacto-->
-            <fieldset>
+            <fieldset class="size">
                 <legend>Datos</legend>
                 <label for="">Nombre:</label>
                 <input type="text" name="nombre" id="nombre" required>
@@ -63,8 +66,9 @@
                 <input type="email" name="email" id="email" required>
             </fieldset>
             <!--Presupuesto-->
-            <fieldset>
+            <fieldset class="size">
                 <legend>Presupuesto</legend>
+                <!--Selección de producto-->
                 <label for="">Elige un producto</label>
                 <select name="producto" id="producto">
                     <option value="manzanilla">Infusión de Manzanilla Natural</option>
@@ -78,23 +82,24 @@
                     <option value="hibisco">Infusión Floral de Hibisco</option>
                 </select>
                 <br>
-                <label for="">Plazo en meses</label>
+                <!--Cantidad-->
+                <label for="">Plazo en Meses:</label>
                 <input type="number" name="plazo" id="plazo" min="1" max="12" required>
-                <label for="">Elija los extras de su producto</label>
-                <input type="checkbox" name="packs" id="packs" value="1pack"><label for="">Envoltorio especial para
+                <br><br>
+                <!--Extras-->
+                <label for="">Elija los Extras de su Producto:</label><br>
+                <input type="checkbox" name="packs" id="packs" value="envoltorio"><label for="">Envoltorio especial para
                     regalo</label>
-                <input type="checkbox" name="packs" id="packs" value="3packs"><label for="">Etiqueta
+                <input type="checkbox" name="packs" id="packs" value="etiqueta"><label for="">Etiqueta
                     personalizada</label>
-                <input type="checkbox" name="packs" id="packs" value="5packs"> <label>Entrega urgente</label>
-                <input type="checkbox" name="packs" id="packs" value="10packs"><label for="">Muestra de otro
-                    producto</label>
-                <br>
-                <label for="">Presupuesto estimado:</label>
+                <input type="checkbox" name="packs" id="packs" value="urgente"> <label>Entrega urgente</label>
+                <br><br>
+                <label for="">Presupuesto Estimado:</label>
                 <input type="text" name="presupuesto" id="presupuesto" readonly>
             </fieldset>
             <!--condiciones y envío de formulario-->
             <fieldset>
-                <legend>Aceptación de Condiciones y Envío de formulario</legend>
+                <legend>Aceptación de Condiciones y Envío de Formulario</legend>
                 <input type="checkbox" name="condiciones" id="condiciones" required>
                 <label for="condiciones">Acepto las condiciones legales y de privacidad</label>
                 <br>
