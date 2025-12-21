@@ -10,13 +10,6 @@
 </head>
 
 <body>
-    <!--Scripts-->
-    <script src="../js/JavaS.js"></script>
-    <script>
-        window.onload = function () {
-            document.getElementById("act").style.textDecoration = "underline #999966";
-        }
-    </script>
 
     <!--Encabezado-->
     <header>
@@ -53,7 +46,65 @@
     </header>
     <main>
         <!--Contenido Principal-->
-
+        <form>
+            <!--Datos de contacto-->
+            <fieldset>
+                <legend>Datos</legend>
+                <label for="">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" required>
+                <br>
+                <label for="">Apellido:</label>
+                <input type="text" name="apellido" id="apellido" required>
+                <br>
+                <label for="">Teléfono:</label>
+                <input type="tel" name="telefono" id="telefono" required>
+                <br>
+                <label for="">Correo Electrónico:</label>
+                <input type="email" name="email" id="email" required>
+            </fieldset>
+            <!--Presupuesto-->
+            <fieldset>
+                <legend>Presupuesto</legend>
+                <label for="">Elige un producto</label>
+                <select name="producto" id="producto">
+                    <option value="manzanilla">Infusión de Manzanilla Natural</option>
+                    <option value="frutos">Infusión de Frutos Rojos</option>
+                    <option value="te">Infusión de Té Verde Suave</option>
+                    <option value="menta">Infusión de Menta y Poleo</option>
+                    <option value="rooibos">Infusión de Menta y Poleo</option>
+                    <option value="anis">Infusión Digestiva de Anís</option>
+                    <option value="tila">Infusión Relax de Tila</option>
+                    <option value="citrica">Infusión Cítrica de Limón y Jengibre</option>
+                    <option value="hibisco">Infusión Floral de Hibisco</option>
+                </select>
+                <br>
+                <label for="">Plazo en meses</label>
+                <input type="number" name="plazo" id="plazo" min="1" max="12" required>
+                <label for="">Elija los extras de su producto</label>
+                <input type="checkbox" name="packs" id="packs" value="1pack"><label for="">Envoltorio especial para
+                    regalo</label>
+                <input type="checkbox" name="packs" id="packs" value="3packs"><label for="">Etiqueta
+                    personalizada</label>
+                <input type="checkbox" name="packs" id="packs" value="5packs"> <label>Entrega urgente</label>
+                <input type="checkbox" name="packs" id="packs" value="10packs"><label for="">Muestra de otro
+                    producto</label>
+                <br>
+                <label for="">Presupuesto estimado:</label>
+                <input type="text" name="presupuesto" id="presupuesto" readonly>
+            </fieldset>
+            <!--condiciones y envío de formulario-->
+            <fieldset>
+                <legend>Aceptación de Condiciones y Envío de formulario</legend>
+                <input type="checkbox" name="condiciones" id="condiciones" required>
+                <label for="condiciones">Acepto las condiciones legales y de privacidad</label>
+                <br>
+                <input type="submit" value="Enviar solicitud de presupuesto">
+                <input type="reset" value="Borrar datos introducidos">
+            </fieldset>
+        </form>
+        <!--Scripts-->
+        <script src="../js/JavaS.js"></script>
+        <script src="../js/presupuesto.js"></script>
     </main>
     <footer>
         <div id="inicio">
