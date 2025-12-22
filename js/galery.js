@@ -1,6 +1,6 @@
 // Galería dinámica
 const galery = document.getElementById("grid-galery");
-const JsonGalery = '../assets/data/galeria.json';
+const JsonGalery = '../assets/data/producto.json';
 
 fetch(JsonGalery)
     .then(res => res.json())
