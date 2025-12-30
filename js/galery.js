@@ -1,3 +1,11 @@
+// Navegación fija al hacer scroll
+$(window).on("scroll", function () {
+    if ($(window).scrollTop() > 130) {
+        $('#nav-bar').addClass('fixed-nav');
+    } else {
+        $('#nav-bar').removeClass('fixed-nav');
+    }
+});
 // Galería dinámica
 const galery = document.getElementById("grid-galery");
 const JsonGalery = '../assets/data/producto.json';

@@ -49,43 +49,45 @@
     <main>
         <!--Contenido Principal-->
         <h1>Solicitud de Presupuesto Personalizado</h1>
-        <form>
+        <form id="form-presupuesto">
             <!--Datos de contacto-->
             <fieldset class="size">
                 <legend>Datos</legend>
-                <label for="">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" required>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" required maxlength="15">
                 <br>
-                <label for="">Apellido:</label>
-                <input type="text" name="apellido" id="apellido" required>
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" id="apellido" required maxlength="40">
                 <br>
-                <label for="">Teléfono:</label>
-                <input type="tel" name="telefono" id="telefono" required>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" name="telefono" id="telefono" required maxlength="9">
                 <br>
-                <label for="">Correo Electrónico:</label>
+                <label for="email">Correo:</label>
                 <input type="email" name="email" id="email" required>
             </fieldset>
             <!--Presupuesto-->
             <fieldset class="size" id="">
                 <legend>Presupuesto</legend>
                 <!--Selección de producto dinámico-->
+                <p>Elija su producto:</p>
                 <select name="Productos" id="pres-script">
                 </select>
                 <br>
                 <!--Cantidad-->
-                <label for="">Plazo en Meses:</label>
+                <label for="plazo">Plazo en Meses:</label>
                 <input type="number" name="plazo" id="plazo" min="1" max="12" required>
-                <br><br>
+                <br>
                 <!--Extras-->
-                <label for="">Elija los Extras de su Producto:</label><br>
-                <input type="checkbox" name="packs" id="packs" value="envoltorio"><label for="">Envoltorio especial para
+                <p>Elija los Extras de su Producto:</p>
+                <input type="checkbox" name="packs" id="packs" value="envoltorio"><label for="packs">Envoltorio especial
+                    para
                     regalo</label>
-                <input type="checkbox" name="packs" id="packs" value="etiqueta"><label for="">Etiqueta
+                <input type="checkbox" name="cards" id="cards" value="etiqueta"><label for="cards">Etiqueta
                     personalizada</label>
-                <input type="checkbox" name="packs" id="packs" value="urgente"> <label>Entrega urgente</label>
-                <br><br>
-                <label for="">Presupuesto Estimado:</label>
-                <input type="text" name="presupuesto" id="presupuesto" readonly>
+                <input type="checkbox" name="delivery" id="delivery" value="urgente"><label for="delivery">Entrega
+                    urgente</label>
+                <br>
+                <span>Presupuesto Estimado:</span><input type="text" name="presupuesto" id="presupuesto" readonly>
             </fieldset>
             <!--condiciones y envío de formulario-->
             <fieldset>
@@ -98,7 +100,6 @@
             </fieldset>
         </form>
         <!--Scripts-->
-        <script src="../js/JavaS.js"></script>
         <script src="../js/presupuesto.js"></script>
     </main>
     <footer>

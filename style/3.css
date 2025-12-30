@@ -1,4 +1,9 @@
 /*Estilos del Formulario*/
+span {
+    position: relative;
+    top: 10px;
+}
+
 form {
     width: 700px;
     height: auto;
@@ -42,6 +47,12 @@ input[type="tel"] {
     font-size: 1em;
     padding: 5px;
     margin: 5px;
+}
+
+#presupuesto {
+    position: relative;
+    top: 10px;
+    width: 60px;
 }
 
 select {
