@@ -11,34 +11,54 @@ $(window).on("scroll", function () {
     }
 });
 //añadir opciones del select dinámicamente
-const selectp = document.getElementById("pres-script");
+const productosSelect = document.getElementById("productos");
+const presupuestoInput = document.getElementById("presupuesto");
+let infusiones = [];
 const Jsonp = '../assets/data/producto.json';
 
-fetch(Jsonp)
-    .then(res => res.json())
-    .then(products => {
-        products.forEach(product => {
-            selectp.innerHTML += `
-            <option name="${product.title}">${product.title}</option>
-        `
-        });
-    });
+async function cargarProductos() {
+    try {
+        const respuesta = await fetch(Jsonp);
+        infusiones = await respuesta.json();
+        llenarSelect();
+    } catch (error) {
+        console.error("error cargando json");
+    };
+}
 
+function llenarSelect() {
+    infusiones.forEach(infusion => {
+        const opcion = document.createElement("option");
+        opcion.value = infusion.id;
+        opcion.textContent = infusion.title;
+        productosSelect.appendChild(opcion);
+    })
+}
+
+productosSelect.addEventListener("change", (evento) => {
+    const productoEncontrado = infusiones.find(infusion => infusion.id == evento.target.value);
+    if (productoEncontrado) {
+        presupuestoInput.value = `${productoEncontrado.price}`
+    } else {
+        presupuestoInput.value = "";
+    }
+});
+cargarProductos();
+
+const form = document.getElementById("form-presupuesto");
 const vletras = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]+$/;
 const vtel = /^[0-9]{9}$/;
 const vemail = /^[_a-z0-9-]+(.[_a-z0-9-]+)*@[_a-z0-9]+(.[_a-z0-9-]+)*(.[a-z]){2,3}$/;
 
-const form = document.getElementById("form-presupuesto");
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    //variables
-    //datos
+    //variables de datos
     const nomb = document.getElementById("nombre").value;
     const apell = document.getElementById("apellido").value;
     const tel = document.getElementById("telefono").value;
     const email = document.getElementById("email").value;
 
-    //validaciones
+    //validaciones de datos
 
     if (nomb === "" || !vletras.test(nomb)) {
         alert("Por favor introduzca bien su nombre");
@@ -56,8 +76,8 @@ form.addEventListener("submit", function (event) {
         alert("Por favor introduzca un email valido")
         return false;
     }
+
     alert("Su solicitud ha sido enviada correctamente");
     form.submit();
 }
 )
-

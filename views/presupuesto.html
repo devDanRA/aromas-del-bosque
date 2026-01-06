@@ -70,19 +70,20 @@
                 <legend>Presupuesto</legend>
                 <!--Selección de producto dinámico-->
                 <p>Elija su producto:</p>
-                <select name="Productos" id="pres-script">
+                <select name="Productos" id="productos">
+                    <option value="" disabled selected hidden>Elige una infusión</option>
                 </select>
                 <br>
                 <!--Cantidad-->
                 <label for="plazo">Plazo en Meses:</label>
-                <input type="number" name="plazo" id="plazo" min="1" max="12" required>
+                <input type="number" name="plazo" id="plazo" min="1" max="12" value="1" required>
                 <br>
                 <!--Extras-->
                 <p>Elija los Extras de su Producto:</p>
-                <input type="checkbox" name="packs" id="packs" value="envoltorio"><label for="packs">Envoltorio especial
+                <input type="checkbox" name="packs" id="pack" value="envoltorio"><label for="pack">Envoltorio especial
                     para
                     regalo</label>
-                <input type="checkbox" name="cards" id="cards" value="etiqueta"><label for="cards">Etiqueta
+                <input type="checkbox" name="cards" id="card" value="etiqueta"><label for="card">Etiqueta
                     personalizada</label>
                 <input type="checkbox" name="delivery" id="delivery" value="urgente"><label for="delivery">Entrega
                     urgente</label>
