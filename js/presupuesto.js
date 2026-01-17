@@ -10,7 +10,7 @@ $(window).on("scroll", function () {
         $('#nav-bar').removeClass('fixed-nav');
     }
 });
-//añadir opciones del select dinámicamente
+//añadir opciones del select dinámicamente y añadir precio al input
 const productosSelect = document.getElementById("productos");
 const presupuestoInput = document.getElementById("presupuesto");
 let infusiones = [];
