@@ -10,40 +10,102 @@ $(window).on("scroll", function () {
         $('#nav-bar').removeClass('fixed-nav');
     }
 });
-//añadir opciones del select dinámicamente y añadir precio al input
+// referencias al DOM
 const productosSelect = document.getElementById("productos");
 const presupuestoInput = document.getElementById("presupuesto");
+const plazoInput = document.getElementById("plazo");
+const PRECIO_PACK = 5;
+const PRECIO_CARD = 3;
+const PRECIO_DELIVERY = 15;
+
+const packCheckbox = document.getElementById("pack");
+const cardCheckbox = document.getElementById("card");
+const deliveryCheckbox = document.getElementById("delivery");
+
+// datos
 let infusiones = [];
+let precioBase = 0;
+
 const Jsonp = '../assets/data/producto.json';
 
+// cargar productos
 async function cargarProductos() {
     try {
         const respuesta = await fetch(Jsonp);
         infusiones = await respuesta.json();
         llenarSelect();
     } catch (error) {
-        console.error("error cargando json");
-    };
+        console.error("Error cargando el JSON", error);
+    }
 }
 
+// llenar el select
 function llenarSelect() {
     infusiones.forEach(infusion => {
         const opcion = document.createElement("option");
         opcion.value = infusion.id;
         opcion.textContent = infusion.title;
         productosSelect.appendChild(opcion);
-    })
+    });
 }
 
+// cuando cambia el producto
 productosSelect.addEventListener("change", (evento) => {
-    const productoEncontrado = infusiones.find(infusion => infusion.id == evento.target.value);
+    const productoEncontrado = infusiones.find(
+        infusion => infusion.id == evento.target.value
+    );
+
     if (productoEncontrado) {
-        presupuestoInput.value = `${productoEncontrado.price}`
+        precioBase = parseFloat(productoEncontrado.price);
+        calcularPrecio();
     } else {
+        precioBase = 0;
         presupuestoInput.value = "";
     }
 });
+
+// calcular precio con descuento por meses
+function calcularPrecio() {
+    let precioFinal = precioBase;
+
+    const meses = parseInt(plazoInput.value);
+
+    // Descuentos por plazo
+    if (meses >= 12) {
+        precioFinal *= 0.90; // 10%
+    } else if (meses >= 6) {
+        precioFinal *= 0.95; // 5%
+    } else if (meses >= 2) {
+        precioFinal *= 0.98; // 2%
+    }
+
+    // Extras
+    if (packCheckbox.checked) {
+        precioFinal += PRECIO_PACK;
+    }
+    if (cardCheckbox.checked) {
+        precioFinal += PRECIO_CARD;
+    }
+    if (deliveryCheckbox.checked) {
+        precioFinal += PRECIO_DELIVERY;
+    }
+
+    presupuestoInput.value = precioFinal.toFixed(2) + " €";
+}
+packCheckbox.addEventListener("change", calcularPrecio);
+cardCheckbox.addEventListener("change", calcularPrecio);
+deliveryCheckbox.addEventListener("change", calcularPrecio);
+
+// cuando cambian los meses
+plazoInput.addEventListener("input", () => {
+    if (precioBase > 0) {
+        calcularPrecio();
+    }
+});
+
+// arrancar
 cargarProductos();
+console.log(typeof precioBase, precioBase);
 
 const form = document.getElementById("form-presupuesto");
 const vletras = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]+$/;
@@ -57,6 +119,7 @@ form.addEventListener("submit", function (event) {
     const apell = document.getElementById("apellido").value;
     const tel = document.getElementById("telefono").value;
     const email = document.getElementById("email").value;
+    const condicionesCheckbox = document.getElementById("condiciones");
 
     //validaciones de datos
 
@@ -77,7 +140,12 @@ form.addEventListener("submit", function (event) {
         return false;
     }
 
+    if (!condicionesCheckbox.checked) {
+        alert("Debes aceptar las condiciones legales para continuar");
+        return;
+    }
+
     alert("Su solicitud ha sido enviada correctamente");
     form.submit();
 }
-)
+);
