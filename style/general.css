@@ -14,7 +14,8 @@ body {
     font-family: 'DM Serif Display', serif;
     background-color: #fff;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 }
 
 header {
@@ -153,6 +154,7 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 50px;
+    flex-wrap: wrap;
     padding: 15px 0;
 }
 
@@ -230,4 +232,99 @@ footer img {
 footer p {
     font-size: 12px;
     color: #000;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 1024px) {
+    #marca {
+        padding: 10px 16px;
+        gap: 12px;
+    }
+
+    #nav-bar ul {
+        gap: 24px;
+        padding: 12px 10px;
+    }
+
+    #redes-contacto {
+        height: auto;
+        padding: 12px 10px;
+    }
+
+    .contacto {
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #marca {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo {
+        width: min(260px, 72vw);
+        height: auto;
+    }
+
+    .contacto {
+        align-items: center;
+        gap: 10px;
+    }
+
+    .tel a,
+    .mail a {
+        font-size: 16px;
+    }
+
+    #nav-bar ul {
+        gap: 12px 20px;
+        padding: 10px 8px;
+    }
+
+    #nav-bar ul li a {
+        font-size: 18px;
+    }
+
+    main {
+        padding: 16px 0;
+    }
+
+    section {
+        width: 94%;
+        padding: 8px;
+    }
+
+    #redes-contacto {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .redes ul {
+        flex-direction: row;
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    #nav-bar ul li a {
+        font-size: 16px;
+    }
+
+    .tel a,
+    .mail a {
+        font-size: 14px;
+    }
+
+    .tel img,
+    .mail img {
+        width: 24px;
+        height: 24px;
+    }
 }

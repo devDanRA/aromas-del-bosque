@@ -8,26 +8,17 @@
     <link rel="shortcut icon" href="../assets/icons/icon-logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="../style/general.css">
     <link rel="stylesheet" href="../style/4.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 
 <body>
-    <script src="../js/JavaS.js"></script>
-    <!--Scripts-->
-    <script>
-        window.onload = function () {
-            document.getElementById("act").style.textDecoration = "underline #999966";
-        }
-    </script>
-    <!--Encabezado-->
     <header>
-        <!--Imagen de la Marca y Contacto-->
         <div id="marca">
-            <!--Logo-->
             <div class="logo">
-                <img src="../assets/brand/1.png" alt="Logotipo de Aromas del Bosque"
-                    title="Logotipo de Aromas del Bosque" width="300" height="300">
+                <img src="../assets/brand/1.png" alt="Logotipo de Aromas del Bosque" title="Logotipo de Aromas del Bosque"
+                    width="300" height="300">
             </div>
-            <!--Contacto-->
             <div class="contacto">
                 <div class="tel">
                     <img src="../assets/icons/phone-svgrepo-com.svg" alt="icono de teléfono" title="icono de teléfono"
@@ -41,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <!--Barra de Navegación-->
+
         <nav id="nav-bar">
             <ul>
                 <li class="link"><a href="../index.html">Home</a></li>
@@ -51,9 +42,34 @@
             </ul>
         </nav>
     </header>
-    <main>
 
+    <main>
+        <h1>Contacto</h1>
+        <div class="contenedor">
+            <aside class="contact-info">
+                <p><strong>Empresa:</strong> Aromas del Bosque</p>
+                <p><strong>Dirección:</strong> Calle de Atocha 27, 28012, Madrid, España</p>
+                <p><strong>Teléfono:</strong> +34 654 987 321</p>
+                <p><strong>Email:</strong> info@aromasdelbosque.com</p>
+                <p><strong>Horario:</strong> Lunes a viernes, 09:00 - 19:00</p>
+            </aside>
+
+            <section class="map-panel">
+                <div id="map"></div>
+
+                <div class="ruta-info">
+                    <label for="origen">Tu ubicación (dirección):</label>
+                    <input type="text" id="origen" placeholder="Ejemplo: Gran Via 25, Madrid">
+                    <div class="botones-ruta">
+                        <button id="calcularRuta" type="button">Calcular ruta por dirección</button>
+                        <button id="usarUbicacion" type="button">Usar mi ubicación actual</button>
+                    </div>
+                    <p id="resultadoRuta" aria-live="polite"></p>
+                </div>
+            </section>
+        </div>
     </main>
+
     <footer>
         <div id="inicio">
             <a href="#">
@@ -61,9 +77,8 @@
                     height="200">
             </a>
         </div>
-        <!--Redes Sociales y contacto-->
+
         <div id="redes-contacto">
-            <!--Redes-->
             <div class="redes">
                 <ul>
                     <li><a href="instagram.com">
@@ -76,7 +91,7 @@
                         </a></li>
                 </ul>
             </div>
-            <!--Contacto-->
+
             <div class="contacto">
                 <div class="tel">
                     <img src="../assets/icons/phone-svgrepo-com.svg" alt="icono de teléfono" title="icono de teléfono"
@@ -90,9 +105,14 @@
                 </div>
             </div>
         </div>
+
         <img src="../assets/brand/3.png" alt="Nombre de la empresa" title="Aroma del Bosque" width="200" height="200">
         <p>&copy; 2025 Aromas del Bosque. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../js/contacto.js"></script>
 </body>
 
 </html>

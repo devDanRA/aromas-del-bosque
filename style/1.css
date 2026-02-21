@@ -12,7 +12,8 @@ article {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     padding: 5px;
     margin: 0 auto;
 }
@@ -81,7 +82,8 @@ article {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     width: 100%;
     gap: 50px;
 }
@@ -154,7 +156,8 @@ article {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     width: 100%;
     gap: 10px;
 }
@@ -214,4 +217,113 @@ article {
     border: 2px solid #f0ece7;
     padding: 10px;
     border-radius: 10px;
+}
+
+@media (max-width: 1100px) {
+    .texto-marca {
+        right: 80px;
+    }
+
+    #info-marca:hover .texto-marca {
+        right: 40px;
+        transform: scale(1.03);
+    }
+
+    .tarjeta {
+        width: 90%;
+    }
+}
+
+@media (max-width: 900px) {
+    #sobre-marca,
+    #destacado,
+    #comentarios {
+        min-height: auto;
+        gap: 24px;
+    }
+
+    #info-marca {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .img-der {
+        width: 100%;
+        height: 320px;
+        max-width: 700px;
+    }
+
+    .texto-marca {
+        position: static;
+        right: auto;
+        width: 100%;
+        max-width: 700px;
+        margin: 0;
+    }
+
+    #info-marca:hover .texto-marca {
+        right: auto;
+        transform: none;
+    }
+
+    .nota {
+        margin: 0;
+    }
+
+    #prod-destacados {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .prodest {
+        width: min(290px, 100%);
+    }
+
+    .tarjeta {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mensaje {
+        width: 100%;
+    }
+
+    .noticia {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    article {
+        width: 100%;
+    }
+
+    .img-der {
+        height: 240px;
+    }
+
+    .texto-marca p {
+        margin: 0;
+    }
+
+    .prodest p {
+        position: static;
+        opacity: 1;
+        bottom: auto;
+    }
+
+    .prodest:hover p {
+        position: static;
+        transform: none;
+    }
+
+    .tarjeta img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .mensaje {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

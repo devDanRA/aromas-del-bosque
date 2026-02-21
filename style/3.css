@@ -5,7 +5,7 @@ span {
 }
 
 form {
-    width: 700px;
+    width: min(700px, 100%);
     height: auto;
     margin: 0 auto;
     padding: 10px;
@@ -17,7 +17,8 @@ form {
 fieldset {
     width: 96%;
     margin: 5px auto;
-    height: 150px;
+    min-height: 150px;
+    height: auto;
     border: 2px solid #999966;
     border-radius: 10px;
     padding: 5px;
@@ -25,7 +26,8 @@ fieldset {
 }
 
 .size {
-    height: 230px;
+    min-height: 230px;
+    height: auto;
 }
 
 legend {
@@ -64,7 +66,7 @@ select {
 
 input[type="number"] {
     margin: 5px;
-    width: 10%;
+    width: 80px;
     border: 1px solid #999966;
     border-radius: 5px;
     font-size: 1rem;
@@ -95,4 +97,56 @@ input[type="submit"]:hover,
 input[type="reset"]:hover {
     transform: scale(0.99);
     box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    form {
+        padding: 8px;
+    }
+
+    fieldset,
+    .size {
+        min-height: auto;
+        padding: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    #presupuesto {
+        width: 120px;
+    }
+
+    input[type="number"] {
+        width: 100px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        width: 100%;
+        margin: 8px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    legend {
+        font-size: 1.05em;
+        margin: 4px;
+    }
+
+    label {
+        display: inline-block;
+        margin: 4px 0;
+    }
+
+    span {
+        top: 0;
+        display: inline-block;
+        margin-bottom: 6px;
+    }
 }

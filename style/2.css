@@ -1,9 +1,9 @@
 .grid {
     display: grid;
-    gap: 40px;
-    grid-template-columns: repeat(3, 300px);
-    grid-template-rows: repeat(3, 300px);
-    margin: 40px;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin: 24px;
+    width: min(1200px, 100%);
 }
 
 .card-galery {
@@ -41,4 +41,26 @@
     overflow: hidden;
     text-overflow: ellipsis;
 
+}
+
+@media (max-width: 768px) {
+    .grid {
+        margin: 16px 0;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .card-img {
+        height: 210px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-img {
+        height: 240px;
+    }
 }

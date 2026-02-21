@@ -1,28 +1,106 @@
 main {
-    display: flex;
-    flex-direction: column;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+}
+
+h1 {
+    margin-bottom: 16px;
+    color: #595959;
 }
 
 .contenedor {
     display: grid;
-    grid-template-columns: 400px 400px;
-    grid-template-rows: 400px 200px;
-    grid-template-areas:
-        "info mapa"
-        "info ruta";
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: minmax(280px, 360px) minmax(320px, 1fr);
+    gap: 24px;
+    align-items: start;
 }
 
 .contact-info {
-    grid-column: 1/3;
-    grid-area: info;
+    background: #f6f6eb;
+    border: 1px solid #d6d7ba;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.contact-info p {
+    margin: 0 0 10px;
+    line-height: 1.4;
+}
+
+.map-panel {
+    background: #ffffff;
+    border: 1px solid #d6d7ba;
+    border-radius: 10px;
+    padding: 14px;
 }
 
 #map {
-    grid-area: mapa;
+    width: 100%;
+    height: 420px;
+    border-radius: 8px;
+    margin-bottom: 12px;
 }
 
 .ruta-info {
-    grid-area: ruta;
+    display: grid;
+    gap: 10px;
+}
+
+.ruta-info label {
+    font-weight: 600;
+}
+
+.ruta-info input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #999966;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.botones-ruta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.botones-ruta button {
+    min-width: 250px;
+    height: 40px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #999966;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 1px 5px 0 #000;
+    transition: all 0.2s ease-in-out;
+}
+
+.botones-ruta button:hover {
+    transform: scale(0.99);
+    box-shadow: none;
+}
+
+#resultadoRuta {
+    min-height: 24px;
+    font-weight: 600;
+    color: #2a4d2f;
+}
+
+@media (max-width: 900px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    #map {
+        height: 360px;
+    }
+
+    .botones-ruta button {
+        width: 100%;
+        min-width: 0;
+    }
 }
