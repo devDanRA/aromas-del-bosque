@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aromas del Bosque</title>
     <link rel="shortcut icon" href="../assets/icons/icon-logo.svg" type="image/x-icon">
+    <!-- Hoja global + hoja específica de contacto. -->
     <link rel="stylesheet" href="../style/general.css">
     <link rel="stylesheet" href="../style/4.css">
+    <!-- Leaflet: librería de mapas para OpenStreetMap. -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
@@ -54,6 +56,7 @@
                 <p><strong>Horario:</strong> Lunes a viernes, 09:00 - 19:00</p>
             </aside>
 
+            <!-- Panel interactivo: mapa + formulario de cálculo de ruta. -->
             <section class="map-panel">
                 <div id="map"></div>
 
@@ -110,6 +113,7 @@
         <p>&copy; 2025 Aromas del Bosque. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Leaflet + lógica de rutas de la página de contacto. -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="../js/contacto.js"></script>

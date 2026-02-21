@@ -1,3 +1,4 @@
+/* Rejilla fluida de tarjetas de producto. */
 .grid {
     display: grid;
     gap: 24px;
@@ -6,6 +7,7 @@
     width: min(1200px, 100%);
 }
 
+/* Tarjeta individual de galería. */
 .card-galery {
     display: flex;
     flex-direction: column;
@@ -43,6 +45,7 @@
 
 }
 
+/* Tablet: más densidad de tarjetas y separación reducida. */
 @media (max-width: 768px) {
     .grid {
         margin: 16px 0;
@@ -55,6 +58,7 @@
     }
 }
 
+/* Móvil: una sola columna para priorizar legibilidad. */
 @media (max-width: 480px) {
     .grid {
         grid-template-columns: 1fr;

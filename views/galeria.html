@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aromas del Bosque</title>
     <link rel="shortcut icon" href="../assets/icons/icon-logo.svg" type="image/x-icon">
+    <!-- jQuery se utiliza para la navegación fija en scroll. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Hoja global + hoja específica de la galería. -->
     <link rel="stylesheet" href="../style/general.css">
     <link rel="stylesheet" href="../style/2.css">
 </head>
@@ -47,10 +49,10 @@
     </header>
     <!--Contenido Principal-->
     <main>
-        <!--Galería Dinamica-->
+        <!-- Contenedor de galería dinámica: las tarjetas se generan desde JSON. -->
         <div id="grid-galery" class="grid">
         </div>
-        <!--Scripts-->
+        <!-- Script que carga productos y pinta tarjetas. -->
         <script src="../js/galery.js"></script>
     </main>
     <!--Pie de Página-->

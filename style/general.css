@@ -1,8 +1,10 @@
+/* Tipografía corporativa cargada en local. */
 @font-face {
     font-family: 'DM Serif Display';
     src: url(../assets/fonts/DMSerifDisplay-Regular.ttf);
 }
 
+/* Reset básico y comportamiento general de scroll. */
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +12,7 @@
     scroll-behavior: smooth;
 }
 
+/* Estructura base del sitio. */
 body {
     font-family: 'DM Serif Display', serif;
     background-color: #fff;
@@ -25,6 +28,7 @@ header {
     flex-direction: column;
 }
 
+/* Paleta de encabezados (jerarquía visual). */
 /*color de encabezados*/
 h1,
 h2 {
@@ -38,6 +42,7 @@ h6 {
     color: #999966;
 }
 
+/* Contenedor superior: marca + contacto. */
 #marca {
     display: flex;
     justify-content: space-between;
@@ -131,6 +136,7 @@ h6 {
     font-weight: bold;
 }
 
+/* Navegación principal compartida en todas las páginas. */
 /*Navegación styles*/
 nav {
     width: 100%;
@@ -239,6 +245,7 @@ img {
     height: auto;
 }
 
+/* Comportamiento responsive global (tablet grande). */
 @media (max-width: 1024px) {
     #marca {
         padding: 10px 16px;
@@ -260,6 +267,7 @@ img {
     }
 }
 
+/* Comportamiento responsive global (tablet/móvil). */
 @media (max-width: 768px) {
     #marca {
         flex-direction: column;
@@ -312,6 +320,7 @@ img {
     }
 }
 
+/* Ajustes finos para móviles pequeños. */
 @media (max-width: 480px) {
     #nav-bar ul li a {
         font-size: 16px;

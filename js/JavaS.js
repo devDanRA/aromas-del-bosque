@@ -1,5 +1,7 @@
-//añadir json al local storage
+// Carga dinámica de noticias en la home desde el JSON local.
 const noticiasSection = document.querySelector('#noticias');
+// Construye una URL absoluta a partir de la ubicación real del script.
+// Esto evita errores de rutas al publicar en GitHub Pages.
 const scriptSrc = document.currentScript ? document.currentScript.src : 'js/JavaS.js';
 const rutaJson = new URL('../assets/data/noticias.json', scriptSrc).href;
 
@@ -24,10 +26,11 @@ if (noticiasSection) {
     })
     .catch(error => {
         console.error(error);
+        // Mensaje visible para depurar fallos de carga en producción.
         noticiasSection.innerHTML += `<p>No se pudieron cargar las noticias. (${rutaJson})</p>`;
     });
 }
-// Navegación fija al hacer scroll
+// Convierte el nav en fijo al superar cierto scroll vertical.
 $(window).on("scroll", function () {
     if ($(window).scrollTop() > 130) {
         $('#nav-bar').addClass('fixed-nav');
@@ -35,7 +38,10 @@ $(window).on("scroll", function () {
         $('#nav-bar').removeClass('fixed-nav');
     }
 });
-// Subrayar el enlace activo en el menú de navegación
+// Resalta la opción activa en el menú principal.
 window.onload = function () {
-    document.getElementById("act").style.textDecoration = "underline #999966";
+    const active = document.getElementById("act");
+    if (active) {
+        active.style.textDecoration = "underline #999966";
+    }
 }

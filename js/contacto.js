@@ -1,5 +1,6 @@
 "use strict";
 
+// Datos base del negocio que se muestran y se usan como destino de ruta.
 const BUSINESS = {
   name: "Aromas del Bosque",
   address: "Calle de Atocha 27, Madrid, Espana",
@@ -11,6 +12,7 @@ let businessMarker;
 let userMarker;
 let routeLayer;
 
+// Inicializa mapa, capa base y marcador de la empresa.
 function initMap() {
   map = L.map("map").setView(BUSINESS.coords, 14);
 
@@ -25,6 +27,7 @@ function initMap() {
     .openPopup();
 }
 
+// Convierte una dirección escrita por el usuario en coordenadas (lat, lon).
 async function geocodeAddress(query) {
   const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`;
   const res = await fetch(url, {
@@ -45,6 +48,7 @@ async function geocodeAddress(query) {
   return [Number(data[0].lat), Number(data[0].lon)];
 }
 
+// Solicita la ruta de conducción entre origen y destino usando OSRM.
 async function getRoute(origin, destination) {
   const originPair = `${origin[1]},${origin[0]}`;
   const destinationPair = `${destination[1]},${destination[0]}`;
@@ -63,6 +67,7 @@ async function getRoute(origin, destination) {
   return data.routes[0];
 }
 
+// Elimina ruta anterior para no superponer trazados en el mapa.
 function clearRoute() {
   if (routeLayer) {
     map.removeLayer(routeLayer);
@@ -70,6 +75,7 @@ function clearRoute() {
   }
 }
 
+// Crea o actualiza el marcador de la ubicación del cliente.
 function setUserMarker(coords) {
   if (userMarker) {
     userMarker.setLatLng(coords);
@@ -78,6 +84,7 @@ function setUserMarker(coords) {
   }
 }
 
+// Formatea distancia en m/km para mostrarla de forma legible.
 function formatDistance(meters) {
   if (meters >= 1000) {
     return `${(meters / 1000).toFixed(1)} km`;
@@ -85,6 +92,7 @@ function formatDistance(meters) {
   return `${Math.round(meters)} m`;
 }
 
+// Formatea duración en minutos u horas.
 function formatDuration(seconds) {
   const minutes = Math.round(seconds / 60);
   if (minutes < 60) {
@@ -95,6 +103,7 @@ function formatDuration(seconds) {
   return rest ? `${hours} h ${rest} min` : `${hours} h`;
 }
 
+// Calcula ruta a partir de una dirección introducida manualmente.
 async function calculateRouteFromAddress() {
   const input = document.getElementById("origen");
   const result = document.getElementById("resultadoRuta");
@@ -126,6 +135,7 @@ async function calculateRouteFromAddress() {
   }
 }
 
+// Calcula ruta usando la geolocalización del navegador.
 function calculateRouteFromGeolocation() {
   const result = document.getElementById("resultadoRuta");
 
@@ -162,6 +172,7 @@ function calculateRouteFromGeolocation() {
   );
 }
 
+// Arranque de la página: mapa, enlace activo y eventos de botones.
 document.addEventListener("DOMContentLoaded", () => {
   initMap();
 
