@@ -78,6 +78,23 @@ input[type="checkbox"] {
     border-radius: 2px;
 }
 
+.extras-lista {
+    display: grid;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.extra-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.extra-item span {
+    font-size: 1rem;
+}
+
 input[type="submit"],
 input[type="reset"] {
     width: 250px;
@@ -130,6 +147,10 @@ input[type="reset"]:hover {
     input[type="reset"] {
         width: 100%;
         margin: 8px 0;
+    }
+
+    .extra-item {
+        align-items: flex-start;
     }
 }
 

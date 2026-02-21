@@ -1,8 +1,15 @@
 //añadir json al local storage
 const noticiasSection = document.querySelector('#noticias');
-const rutaJson = '../assets/data/noticias.json';
-fetch(rutaJson)
-    .then(res => res.json())
+const rutaJson = 'assets/data/noticias.json';
+
+if (noticiasSection) {
+    fetch(rutaJson)
+    .then(res => {
+        if (!res.ok) {
+            throw new Error(`No se pudo cargar noticias.json (${res.status})`);
+        }
+        return res.json();
+    })
     .then(noticias => {
         noticias.forEach(post => {
             noticiasSection.innerHTML += `
@@ -13,7 +20,12 @@ fetch(rutaJson)
                     </article>
                     `;
         });
+    })
+    .catch(error => {
+        console.error(error);
+        noticiasSection.innerHTML += '<p>No se pudieron cargar las noticias.</p>';
     });
+}
 // Navegación fija al hacer scroll
 $(window).on("scroll", function () {
     if ($(window).scrollTop() > 130) {
@@ -26,5 +38,4 @@ $(window).on("scroll", function () {
 window.onload = function () {
     document.getElementById("act").style.textDecoration = "underline #999966";
 }
-
 

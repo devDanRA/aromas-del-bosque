@@ -80,13 +80,20 @@
                 <br>
                 <!--Extras-->
                 <p>Elija los Extras de su Producto:</p>
-                <input type="checkbox" name="packs" id="pack" value="envoltorio"><label for="pack">Envoltorio especial
-                    para
-                    regalo</label>
-                <input type="checkbox" name="cards" id="card" value="etiqueta"><label for="card">Etiqueta
-                    personalizada</label>
-                <input type="checkbox" name="delivery" id="delivery" value="urgente"><label for="delivery">Entrega
-                    urgente</label>
+                <div class="extras-lista">
+                    <label class="extra-item" for="pack">
+                        <input type="checkbox" name="packs" id="pack" value="envoltorio">
+                        <span>Envoltorio especial para regalo</span>
+                    </label>
+                    <label class="extra-item" for="card">
+                        <input type="checkbox" name="cards" id="card" value="etiqueta">
+                        <span>Etiqueta personalizada</span>
+                    </label>
+                    <label class="extra-item" for="delivery">
+                        <input type="checkbox" name="delivery" id="delivery" value="urgente">
+                        <span>Entrega urgente</span>
+                    </label>
+                </div>
                 <br>
                 <span>Presupuesto Estimado:</span><input type="text" name="presupuesto" id="presupuesto" readonly>
             </fieldset>
