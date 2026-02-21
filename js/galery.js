@@ -8,7 +8,8 @@ $(window).on("scroll", function () {
 });
 // Galería dinámica
 const galery = document.getElementById("grid-galery");
-const JsonGalery = '../assets/data/producto.json';
+const scriptSrc = document.currentScript ? document.currentScript.src : 'js/galery.js';
+const JsonGalery = new URL('../assets/data/producto.json', scriptSrc).href;
 
 fetch(JsonGalery)
     .then(res => res.json())
@@ -24,7 +25,17 @@ fetch(JsonGalery)
             </div>
             `
         });
+    })
+    .catch(error => {
+        console.error(error);
+        if (galery) {
+            galery.innerHTML = '<p>No se pudo cargar la galería.</p>';
+        }
     });
 
-// Navegación fija al hacer scrollwindow.onload = function () {
-document.getElementById("act").style.textDecoration = "underline #999966";
+window.onload = function () {
+    const active = document.getElementById("act");
+    if (active) {
+        active.style.textDecoration = "underline #999966";
+    }
+};

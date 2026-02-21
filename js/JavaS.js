@@ -1,6 +1,7 @@
 //añadir json al local storage
 const noticiasSection = document.querySelector('#noticias');
-const rutaJson = 'assets/data/noticias.json';
+const scriptSrc = document.currentScript ? document.currentScript.src : 'js/JavaS.js';
+const rutaJson = new URL('../assets/data/noticias.json', scriptSrc).href;
 
 if (noticiasSection) {
     fetch(rutaJson)
@@ -23,7 +24,7 @@ if (noticiasSection) {
     })
     .catch(error => {
         console.error(error);
-        noticiasSection.innerHTML += '<p>No se pudieron cargar las noticias.</p>';
+        noticiasSection.innerHTML += `<p>No se pudieron cargar las noticias. (${rutaJson})</p>`;
     });
 }
 // Navegación fija al hacer scroll
@@ -38,4 +39,3 @@ $(window).on("scroll", function () {
 window.onload = function () {
     document.getElementById("act").style.textDecoration = "underline #999966";
 }
-
