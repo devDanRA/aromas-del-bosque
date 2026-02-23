@@ -6,38 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aromas del Bosque</title>
     <link rel="shortcut icon" href="assets/icons/icon-logo.svg" type="image/x-icon">
-    <!-- jQuery se utiliza para la navegación fija en scroll. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <!-- Hoja global + hoja específica de la portada. -->
     <link rel="stylesheet" href="style/general.css">
-    <link rel="stylesheet" href="style/1.css">
 </head>
 
 <body>
-    <!--Encabezado-->
     <header>
-        <!--Imagen de la Marca y Contacto-->
         <div id="marca">
-            <!--Logo-->
             <div class="logo">
                 <img src="assets/brand/1.png" alt="Logotipo de Aromas del Bosque" title="Logotipo de Aromas del Bosque"
                     width="300" height="300">
             </div>
-            <!--Contacto-->
             <div class="contacto">
                 <div class="tel">
-                    <img src="assets/icons/phone-svgrepo-com.svg" alt="icono de teléfono" title="icono de teléfono"
+                    <img src="assets/icons/phone-svgrepo-com.svg" alt="Icono de teléfono" title="Icono de teléfono"
                         width="100" height="100">
                     <a href="tel:+34654987321">+34 654 987 321</a>
                 </div>
                 <div class="mail">
-                    <img src="assets/icons/mail-alt-2-svgrepo-com.svg" alt="icono de correo electrónico"
-                        title="icono de correo electrónico" width="100" height="100">
+                    <img src="assets/icons/mail-alt-2-svgrepo-com.svg" alt="Icono de correo electrónico"
+                        title="Icono de correo electrónico" width="100" height="100">
                     <a href="mailto:info@aromasdelbosque.com">info@aromasdelbosque.com</a>
                 </div>
             </div>
         </div>
-        <!--Barra de Navegación-->
+
         <nav id="nav-bar">
             <ul>
                 <li class="link"><a href="#" id="act">Inicio</a></li>
@@ -47,166 +39,148 @@
             </ul>
         </nav>
     </header>
-    <!--Contenido Principal-->
-    <main>
-        <!--Sección 1 Sobre la Marca-->
+
+    <main class="home-main">
         <section id="sobre-marca">
             <h1>Sobre Aromas del Bosque</h1>
             <article id="info-marca">
-                <div class="img-der"><img src="assets/galery/Noticias/pexels-anna-pou-8330249.jpg"
+                <div class="img-der">
+                    <img src="assets/galery/Noticias/pexels-anna-pou-8330249.jpg"
                         alt="Una tetera con infusión de hierbas" title="Una tetera con infusión de hierbas" width="400"
-                        height="300"></div>
+                        height="300">
+                </div>
                 <div class="texto-marca">
                     <h2>Infusiones creadas con ingredientes puros y seleccionados</h2>
                     <p>En Aromas del Bosque trabajamos con hierbas, flores y especias de origen natural, seleccionadas
-                        cuidadosamente para
-                        crear mezclas equilibradas y llenas de aroma. Utilizamos ingredientes como rooibos, té verde, té
-                        negro, frutos
-                        deshidratados, canela, jengibre, lavanda o pétalos de rosa, siempre priorizando proveedores
-                        locales
-                        y producciones
-                        responsables.</p>
+                        cuidadosamente para crear mezclas equilibradas y llenas de aroma. Utilizamos ingredientes como
+                        rooibos, té verde, té negro, frutos deshidratados, canela, jengibre, lavanda o pétalos de rosa,
+                        siempre priorizando proveedores locales y producciones responsables.</p>
                 </div>
-
             </article>
         </section>
-        <!--Sección 2 Productos destacados-->
+
         <section id="destacado">
             <h2>Nuestras Mezclas Destacadas</h2>
             <div class="nota">
                 <h3>Sabores que enamoran a primera taza</h3>
-                <p>Estas son algunas de nuestras infusiones más queridas por los clientes. Cada mezcla está elaborada
-                    con
-                    ingredientes
-                    naturales y combinaciones pensadas para crear experiencias únicas. Nos gusta equilibrar aroma, sabor
-                    y
-                    propiedades
-                    para
-                    que cada taza sea especial.</p>
+                <p>Estas son algunas de nuestras infusiones más queridas por los clientes. Cada mezcla está elaborada con
+                    ingredientes naturales y combinaciones pensadas para crear experiencias únicas.</p>
             </div>
             <article id="prod-destacados">
                 <div class="prodest">
-                    <img src="assets/galery/Galeria/g1.png" alt="bolsas de papel contenedoras de infusión"
-                        title="bolsas de papel contenedoras de infusión" width="300" height="300">
+                    <img src="assets/galery/Galeria/g1.png" alt="Bolsa de infusión de manzanilla"
+                        title="Infusión de Manzanilla" width="300" height="300">
                     <a href="views/galeria.html">
-                        <h4>Infusión de Manzanilla</h4>
+                        <h3>Infusión de Manzanilla</h3>
                     </a>
-                    <p>Elaborada con lavanda, manzanilla y pétalos de rosa. Una mezcla calmante que ayuda a desconectar
-                        del
-                        día.</p>
+                    <p>Elaborada con lavanda, manzanilla y pétalos de rosa. Una mezcla calmante para desconectar.</p>
                 </div>
                 <div class="prodest">
-                    <img src="assets/galery/Galeria/g6.png" alt="bolsas de papel contenedoras de infusión"
-                        title="bolsas de papel contenedoras de infusión" width="300" height="300">
+                    <img src="assets/galery/Galeria/g6.png" alt="Bolsa de infusión de lavanda"
+                        title="Infusión de Lavanda" width="300" height="300">
                     <a href="views/galeria.html">
-                        <h4>Infusión de Lavanda</h4>
+                        <h3>Infusión de Lavanda</h3>
                     </a>
-                    <p>Mezcla cálida y suave, perfecta para relajarse. Ideal para tomar por la noche, sin teína.</p>
+                    <p>Mezcla cálida y suave, perfecta para relajarse y tomar por la noche, sin teína.</p>
                 </div>
                 <div class="prodest">
-                    <img src="assets/galery/Galeria/g3.png" alt="bolsas de papel contenedoras de infusión"
-                        title="bolsas de papel contenedoras de infusión" width="300" height="300">
+                    <img src="assets/galery/Galeria/g3.png" alt="Bolsa de infusión de tila" title="Infusión de Tila"
+                        width="300" height="300">
                     <a href="views/galeria.html">
-                        <h4>Infusión de Tila</h4>
+                        <h3>Infusión de Tila</h3>
                     </a>
-                    <p>Combinación refrescante de Tila, piel de limón y naranja. Aporta energía suave y un aroma
-                        cítrico
-                        delicioso.
-                    </p>
+                    <p>Combinación refrescante de tila, piel de limón y naranja con aroma cítrico delicioso.</p>
                 </div>
             </article>
         </section>
-        <!--Sección 3 Comentarios-->
+
         <section id="comentarios">
             <h2>Opiniones de Nuestros Clientes</h2>
             <div class="tarjeta">
-                <img src="assets/galery/Noticias/pexels-teteria.jpg" alt="dependiente atendiendo a un cliente"
-                    title="dependiente atendiendo a un cliente" width="300" height="200">
+                <img src="assets/galery/Noticias/pexels-teteria.jpg" alt="Dependiente atendiendo a una clienta"
+                    title="Atención personalizada" width="300" height="200">
                 <article>
                     <h3>Lo que nuestros clientes dicen de nosotros</h3>
-                    <p>Nada nos alegra más que saber que nuestras infusiones forman parte de los momentos especiales de
-                        quienes las disfrutan.
-                        Estas son algunas opiniones de clientes que han probado nuestras mezclas y quieren compartir su
-                        experiencia.</p>
+                    <p>Nada nos alegra más que saber que nuestras infusiones forman parte de momentos especiales. Estas
+                        son algunas opiniones de personas que han probado nuestras mezclas.</p>
                 </article>
             </div>
             <div class="mensaje">
-                <img src="assets/icons/user-circle-svgrepo-com.svg" alt="icono de usuario" title="icono de usuario"
-                    width="100" height="100">
+                <img src="assets/icons/user-circle-svgrepo-com.svg" alt="Icono de perfil de usuaria" width="100"
+                    height="100">
                 <div>
-                    <h4>María R.</h4>
+                    <h3>María R.</h3>
                     <p>“La infusión Floral Serenidad es mi favorita. Tiene un aroma increíble y me ayuda muchísimo a
-                        relajarme después del
-                        trabajo.”</p>
+                        relajarme después del trabajo.”</p>
                 </div>
             </div>
             <div class="mensaje">
-                <img src="assets/icons/user-circle-svgrepo-com.svg" alt="icono de usuario" title="icono de usuario"
-                    width="100" height="100">
+                <img src="assets/icons/user-circle-svgrepo-com.svg" alt="Icono de perfil de usuario" width="100"
+                    height="100">
                 <div>
-                    <h4>Carlos P.</h4>
-                    <p>“Descubrí Aromas del Bosque en una feria y ahora no compro infusiones en ningún otro sitio. El
-                        Rooibos Miel & Canela es
-                        espectacular.”</p>
+                    <h3>Carlos P.</h3>
+                    <p>“Descubrí Aromas del Bosque en una feria y ahora no compro infusiones en ningún otro sitio.”</p>
                 </div>
             </div>
             <div class="mensaje">
-                <img src="assets/icons/user-circle-svgrepo-com.svg" alt="icno de usuario" title="icono de usuario"
-                    width="100" height="100">
+                <img src="assets/icons/user-circle-svgrepo-com.svg" alt="Icono de perfil de usuaria" width="100"
+                    height="100">
                 <div>
-                    <h4>Elena G.</h4>
-                    <p>“Me encanta que todos los ingredientes sean naturales. Se nota la frescura y el mimo con el que
-                        preparan cada mezcla.”</p>
+                    <h3>Elena G.</h3>
+                    <p>“Me encanta que todos los ingredientes sean naturales. Se nota la frescura y el mimo de cada
+                        mezcla.”</p>
                 </div>
             </div>
         </section>
-        <!--Sección 4  Noticias-->
+
         <section id="noticias">
-            <h2>Noticias de Aromas del Blosque</h2>
+            <h2>Noticias de Aromas del Bosque</h2>
         </section>
-        <!-- Script de portada: noticias dinámicas y comportamiento de navegación. -->
+
         <script src="js/JavaS.js"></script>
     </main>
+
     <footer>
         <div id="inicio">
             <a href="#">
-                <img src="assets/brand/4.png" alt="Nombre de la empresa" title="Aroma del Bosque" width="200"
+                <img src="assets/brand/4.png" alt="Nombre de la empresa" title="Aromas del Bosque" width="200"
                     height="200">
             </a>
         </div>
-        <!--Redes Sociales y contacto-->
+
         <div id="redes-contacto">
-            <!--Redes-->
             <div class="redes">
                 <ul>
-                    <li><a href="instagram.com">
-                            <img src="assets/icons/instagram-svgrepo-com.svg" alt="Enlace a Instagram"
-                                title="logo de instagram" width="100" height="100">
+                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Ir a Instagram">
+                            <img src="assets/icons/instagram-svgrepo-com.svg" alt="Instagram" title="Instagram"
+                                width="100" height="100">
                         </a></li>
-                    <li><a href="whatsapp.com">
-                            <img src="assets/icons/whatsapp-svgrepo-com.svg" alt="Enlace a WhatsApp"
-                                title="logo de whatsapp" width="100" height="100">
+                    <li><a href="https://wa.me/34654987321" target="_blank" rel="noopener noreferrer"
+                            aria-label="Ir a WhatsApp">
+                            <img src="assets/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" title="WhatsApp"
+                                width="100" height="100">
                         </a></li>
                 </ul>
             </div>
-            <!--Contacto-->
+
             <div class="contacto">
                 <div class="tel">
-                    <img src="assets/icons/phone-svgrepo-com.svg" alt="icono de teléfono" title="icono de teléfono"
+                    <img src="assets/icons/phone-svgrepo-com.svg" alt="Icono de teléfono" title="Icono de teléfono"
                         width="100" height="100">
                     <a href="tel:+34654987321">+34 654 987 321</a>
                 </div>
                 <div class="mail">
-                    <img src="assets/icons/mail-alt-2-svgrepo-com.svg" alt="icono de correo electrónico"
-                        title="icono de correo electrónico" width="100" height="100">
+                    <img src="assets/icons/mail-alt-2-svgrepo-com.svg" alt="Icono de correo electrónico"
+                        title="Icono de correo electrónico" width="100" height="100">
                     <a href="mailto:info@aromasdelbosque.com">info@aromasdelbosque.com</a>
                 </div>
             </div>
         </div>
-        <img src="assets/brand/3.png" alt="Nombre de la empresa" title="Aroma del Bosque" width="200" height="200">
+
+        <img src="assets/brand/3.png" alt="Isotipo de la marca" title="Aromas del Bosque" width="200" height="200">
         <p>&copy; 2025 Aromas del Bosque. Todos los derechos reservados.</p>
     </footer>
-
 </body>
 
 </html>

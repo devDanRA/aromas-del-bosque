@@ -1,49 +1,74 @@
-// Resalta la sección activa en la barra de navegación.
-window.onload = function () {
-    document.getElementById("act").style.textDecoration = "underline #999966";
-}
-// Fija el menú al hacer scroll para mantener la navegación accesible.
-$(window).on("scroll", function () {
-    if ($(window).scrollTop() > 130) {
-        $('#nav-bar').addClass('fixed-nav');
-    } else {
-        $('#nav-bar').removeClass('fixed-nav');
-    }
-});
-// Referencias a elementos clave del formulario.
 const productosSelect = document.getElementById("productos");
 const presupuestoInput = document.getElementById("presupuesto");
 const plazoInput = document.getElementById("plazo");
-// Coste unitario de extras.
-const PRECIO_PACK = 5;
-const PRECIO_CARD = 3;
-const PRECIO_DELIVERY = 15;
+const mensajeFormulario = document.getElementById("mensajeFormulario");
+const form = document.getElementById("form-presupuesto");
 
 const packCheckbox = document.getElementById("pack");
 const cardCheckbox = document.getElementById("card");
 const deliveryCheckbox = document.getElementById("delivery");
 
-// Estado temporal de datos cargados y precio base seleccionado.
+const PRECIO_PACK = 5;
+const PRECIO_CARD = 3;
+const PRECIO_DELIVERY = 15;
+
+const patronNombre = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?:\s+[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
+const patronTelefono = /^[0-9]{9}$/;
+const patronEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+const rutaJsonProductos = "../assets/data/producto.json";
+
 let infusiones = [];
 let precioBase = 0;
 
-// Fuente de datos de productos.
-const Jsonp = '../assets/data/producto.json';
-
-// Descarga el catálogo y rellena el selector de productos.
-async function cargarProductos() {
-    try {
-        const respuesta = await fetch(Jsonp);
-        infusiones = await respuesta.json();
-        llenarSelect();
-    } catch (error) {
-        console.error("Error cargando el JSON", error);
+function activarEnlaceActual() {
+    const active = document.getElementById("act");
+    if (active) {
+        active.style.textDecoration = "underline #999966";
     }
 }
 
-// Inserta dinámicamente las opciones del select a partir del JSON.
+function activarNavFija() {
+    const nav = document.getElementById("nav-bar");
+    if (!nav) {
+        return;
+    }
+
+    const actualizarNav = () => {
+        if (window.scrollY > 130) {
+            nav.classList.add("fixed-nav");
+        } else {
+            nav.classList.remove("fixed-nav");
+        }
+    };
+
+    window.addEventListener("scroll", actualizarNav);
+    actualizarNav();
+}
+
+function mostrarMensaje(texto, tipo) {
+    if (!mensajeFormulario) {
+        return;
+    }
+
+    mensajeFormulario.textContent = texto;
+    mensajeFormulario.classList.remove("error", "ok");
+    if (tipo) {
+        mensajeFormulario.classList.add(tipo);
+    }
+}
+
+function limpiarMensaje() {
+    if (!mensajeFormulario) {
+        return;
+    }
+
+    mensajeFormulario.textContent = "";
+    mensajeFormulario.classList.remove("error", "ok");
+}
+
 function llenarSelect() {
-    infusiones.forEach(infusion => {
+    infusiones.forEach((infusion) => {
         const opcion = document.createElement("option");
         opcion.value = infusion.id;
         opcion.textContent = infusion.title;
@@ -51,106 +76,161 @@ function llenarSelect() {
     });
 }
 
-// Actualiza el precio base al cambiar de producto.
-productosSelect.addEventListener("change", (evento) => {
-    const productoEncontrado = infusiones.find(
-        infusion => infusion.id == evento.target.value
-    );
+async function cargarProductos() {
+    try {
+        const respuesta = await fetch(rutaJsonProductos);
+        if (!respuesta.ok) {
+            throw new Error("No se pudo cargar el catálogo de productos.");
+        }
 
-    if (productoEncontrado) {
-        precioBase = parseFloat(productoEncontrado.price);
-        calcularPrecio();
-    } else {
-        precioBase = 0;
-        presupuestoInput.value = "";
+        infusiones = await respuesta.json();
+        llenarSelect();
+    } catch {
+        mostrarMensaje("No se pudo cargar el catálogo de productos. Inténtalo de nuevo.", "error");
     }
-});
+}
 
-// Calcula precio final aplicando descuentos por plazo y extras seleccionados.
 function calcularPrecio() {
     let precioFinal = precioBase;
+    const meses = Number.parseInt(plazoInput.value, 10);
 
-    const meses = parseInt(plazoInput.value);
-
-    // Descuentos por plazo de permanencia.
     if (meses >= 12) {
-        precioFinal *= 0.90; // 10%
+        precioFinal *= 0.9;
     } else if (meses >= 6) {
-        precioFinal *= 0.95; // 5%
+        precioFinal *= 0.95;
     } else if (meses >= 2) {
-        precioFinal *= 0.98; // 2%
+        precioFinal *= 0.98;
     }
 
-    // Recargos por extras.
     if (packCheckbox.checked) {
         precioFinal += PRECIO_PACK;
     }
+
     if (cardCheckbox.checked) {
         precioFinal += PRECIO_CARD;
     }
+
     if (deliveryCheckbox.checked) {
         precioFinal += PRECIO_DELIVERY;
     }
 
-    presupuestoInput.value = precioFinal.toFixed(2) + " €";
+    presupuestoInput.value = `${precioFinal.toFixed(2)} €`;
 }
-// Recalcula cuando cambia cualquier extra.
-packCheckbox.addEventListener("change", calcularPrecio);
-cardCheckbox.addEventListener("change", calcularPrecio);
-deliveryCheckbox.addEventListener("change", calcularPrecio);
 
-// Recalcula cuando cambia el número de meses.
-plazoInput.addEventListener("input", () => {
-    if (precioBase > 0) {
-        calcularPrecio();
+function validarCampoTexto(valor, etiquetaCampo) {
+    const limpio = valor.trim();
+
+    if (!limpio) {
+        return `${etiquetaCampo} es obligatorio y no puede contener solo espacios.`;
     }
-});
 
-// Inicializa carga de productos al abrir la página.
-cargarProductos();
-console.log(typeof precioBase, precioBase);
+    if (!patronNombre.test(limpio)) {
+        return `${etiquetaCampo} solo puede incluir letras y espacios entre palabras.`;
+    }
 
-// Reglas de validación para campos de contacto.
-const form = document.getElementById("form-presupuesto");
-const vletras = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]+$/;
-const vtel = /^[0-9]{9}$/;
-const vemail = /^[_a-z0-9-]+(.[_a-z0-9-]+)*@[_a-z0-9]+(.[_a-z0-9-]+)*(.[a-z]){2,3}$/;
+    return "";
+}
 
-// Valida datos y evita el envío si hay errores.
-form.addEventListener("submit", function (event) {
+function validarFormulario(event) {
     event.preventDefault();
-    // Variables de datos capturados del formulario.
-    const nomb = document.getElementById("nombre").value;
-    const apell = document.getElementById("apellido").value;
-    const tel = document.getElementById("telefono").value;
-    const email = document.getElementById("email").value;
+    limpiarMensaje();
+
+    const nombreInput = document.getElementById("nombre");
+    const apellidoInput = document.getElementById("apellido");
+    const telefonoInput = document.getElementById("telefono");
+    const emailInput = document.getElementById("email");
     const condicionesCheckbox = document.getElementById("condiciones");
 
-    // Validaciones de formato de datos.
+    const nombre = nombreInput.value;
+    const apellido = apellidoInput.value;
+    const telefono = telefonoInput.value.trim();
+    const email = emailInput.value.trim();
 
-    if (nomb === "" || !vletras.test(nomb)) {
-        alert("Por favor introduzca bien su nombre");
-        return false;
-    }
-    if (apell === "" || !vletras.test(apell)) {
-        alert("Por favor introduzca bien su apellido");
-        return false;
-    }
-    if (tel === "" || !vtel.test(tel)) {
-        alert("Por favor introduzca bien su número de telefono");
-        return false;
-    }
-    if (email === "" || !vemail.test(email)) {
-        alert("Por favor introduzca un email valido")
-        return false;
-    }
-
-    if (!condicionesCheckbox.checked) {
-        alert("Debes aceptar las condiciones legales para continuar");
+    const errorNombre = validarCampoTexto(nombre, "El nombre");
+    if (errorNombre) {
+        mostrarMensaje(errorNombre, "error");
+        nombreInput.focus();
         return;
     }
 
-    alert("Su solicitud ha sido enviada correctamente");
+    const errorApellido = validarCampoTexto(apellido, "Los apellidos");
+    if (errorApellido) {
+        mostrarMensaje(errorApellido, "error");
+        apellidoInput.focus();
+        return;
+    }
+
+    if (/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(telefono)) {
+        mostrarMensaje("El teléfono no puede contener letras, solo números.", "error");
+        telefonoInput.focus();
+        return;
+    }
+
+    if (!patronTelefono.test(telefono)) {
+        mostrarMensaje("El teléfono debe contener exactamente 9 dígitos numéricos.", "error");
+        telefonoInput.focus();
+        return;
+    }
+
+    if (!patronEmail.test(email)) {
+        mostrarMensaje("El correo electrónico no tiene un formato válido.", "error");
+        emailInput.focus();
+        return;
+    }
+
+    if (!productosSelect.value) {
+        mostrarMensaje("Debes seleccionar una infusión para calcular y enviar el presupuesto.", "error");
+        productosSelect.focus();
+        return;
+    }
+
+    if (!condicionesCheckbox.checked) {
+        mostrarMensaje("Debes aceptar las condiciones legales y de privacidad para continuar.", "error");
+        condicionesCheckbox.focus();
+        return;
+    }
+
     form.submit();
 }
-);
+
+function registrarEventos() {
+    productosSelect.addEventListener("change", (event) => {
+        const productoEncontrado = infusiones.find((infusion) => infusion.id === event.target.value);
+
+        if (productoEncontrado) {
+            precioBase = Number.parseFloat(productoEncontrado.price);
+            calcularPrecio();
+        } else {
+            precioBase = 0;
+            presupuestoInput.value = "";
+        }
+    });
+
+    [packCheckbox, cardCheckbox, deliveryCheckbox].forEach((checkbox) => {
+        checkbox.addEventListener("change", () => {
+            if (precioBase > 0) {
+                calcularPrecio();
+            }
+        });
+    });
+
+    plazoInput.addEventListener("input", () => {
+        if (precioBase > 0) {
+            calcularPrecio();
+        }
+    });
+
+    form.addEventListener("submit", validarFormulario);
+
+    form.addEventListener("reset", () => {
+        precioBase = 0;
+        limpiarMensaje();
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    activarEnlaceActual();
+    activarNavFija();
+    cargarProductos();
+    registrarEventos();
+});

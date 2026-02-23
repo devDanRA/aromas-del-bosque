@@ -1,47 +1,72 @@
-// Carga dinámica de noticias en la home desde el JSON local.
-const noticiasSection = document.querySelector('#noticias');
-// Construye una URL absoluta a partir de la ubicación real del script.
-// Esto evita errores de rutas al publicar en GitHub Pages.
-const scriptSrc = document.currentScript ? document.currentScript.src : 'js/JavaS.js';
-const rutaJson = new URL('../assets/data/noticias.json', scriptSrc).href;
+const noticiasSection = document.querySelector("#noticias");
+const rutaJsonNoticias = "assets/data/noticias.json";
 
-if (noticiasSection) {
-    fetch(rutaJson)
-    .then(res => {
-        if (!res.ok) {
-            throw new Error(`No se pudo cargar noticias.json (${res.status})`);
-        }
-        return res.json();
-    })
-    .then(noticias => {
-        noticias.forEach(post => {
-            noticiasSection.innerHTML += `
-                    <article class="noticia">
-                        <h3>${post.titulo}</h3>
-                        <p>${post.contenido}</p>
-                        <span>Publicado el: ${post.fecha}</span>
-                    </article>
-                    `;
-        });
-    })
-    .catch(error => {
-        console.error(error);
-        // Mensaje visible para depurar fallos de carga en producción.
-        noticiasSection.innerHTML += `<p>No se pudieron cargar las noticias. (${rutaJson})</p>`;
-    });
-}
-// Convierte el nav en fijo al superar cierto scroll vertical.
-$(window).on("scroll", function () {
-    if ($(window).scrollTop() > 130) {
-        $('#nav-bar').addClass('fixed-nav');
-    } else {
-        $('#nav-bar').removeClass('fixed-nav');
-    }
-});
-// Resalta la opción activa en el menú principal.
-window.onload = function () {
+function activarEnlaceActual() {
     const active = document.getElementById("act");
     if (active) {
         active.style.textDecoration = "underline #999966";
     }
 }
+
+function activarNavFija() {
+    const nav = document.getElementById("nav-bar");
+    if (!nav) {
+        return;
+    }
+
+    const actualizarNav = () => {
+        if (window.scrollY > 130) {
+            nav.classList.add("fixed-nav");
+        } else {
+            nav.classList.remove("fixed-nav");
+        }
+    };
+
+    window.addEventListener("scroll", actualizarNav);
+    actualizarNav();
+}
+
+function renderNoticias(listaNoticias) {
+    if (!noticiasSection) {
+        return;
+    }
+
+    const fragmento = document.createDocumentFragment();
+
+    listaNoticias.forEach((post) => {
+        const articulo = document.createElement("article");
+        articulo.className = "noticia";
+        articulo.innerHTML = `
+            <h3>${post.titulo}</h3>
+            <p>${post.contenido}</p>
+            <p class="noticia-fecha">Publicado el: ${post.fecha}</p>
+        `;
+        fragmento.appendChild(articulo);
+    });
+
+    noticiasSection.appendChild(fragmento);
+}
+
+async function cargarNoticias() {
+    if (!noticiasSection) {
+        return;
+    }
+
+    try {
+        const respuesta = await fetch(rutaJsonNoticias);
+        if (!respuesta.ok) {
+            throw new Error("No se pudieron cargar las noticias.");
+        }
+
+        const noticias = await respuesta.json();
+        renderNoticias(noticias);
+    } catch {
+        noticiasSection.innerHTML += "<p>No se pudieron cargar las noticias en este momento.</p>";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    activarEnlaceActual();
+    activarNavFija();
+    cargarNoticias();
+});

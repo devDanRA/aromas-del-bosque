@@ -6,94 +6,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aromas del Bosque</title>
     <link rel="shortcut icon" href="../assets/icons/icon-logo.svg" type="image/x-icon">
-    <!-- jQuery se utiliza para la navegación fija en scroll. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <!-- Hoja global + hoja específica de la galería. -->
     <link rel="stylesheet" href="../style/general.css">
-    <link rel="stylesheet" href="../style/2.css">
 </head>
 
 <body>
-    <!--Encabezado-->
     <header>
-        <!--Imagen de la Marca y Contacto-->
         <div id="marca">
-            <!--Logo-->
             <div class="logo">
-                <img src="../assets/brand/1.png" alt="Logotipo de Aromas del Bosque"
-                    title="Logotipo de Aromas del Bosque" width="300" height="300">
+                <img src="../assets/brand/1.png" alt="Logotipo de Aromas del Bosque" title="Logotipo de Aromas del Bosque"
+                    width="300" height="300">
             </div>
-            <!--Contacto-->
             <div class="contacto">
                 <div class="tel">
-                    <img src="../assets/icons/phone-svgrepo-com.svg" alt="icono de teléfono" title="icono de teléfono"
+                    <img src="../assets/icons/phone-svgrepo-com.svg" alt="Icono de teléfono" title="Icono de teléfono"
                         width="100" height="100">
                     <a href="tel:+34654987321">+34 654 987 321</a>
                 </div>
                 <div class="mail">
-                    <img src="../assets/icons/mail-alt-2-svgrepo-com.svg" alt="icono de correo electrónico"
-                        title="icono de correo electrónico" width="100" height="100">
+                    <img src="../assets/icons/mail-alt-2-svgrepo-com.svg" alt="Icono de correo electrónico"
+                        title="Icono de correo electrónico" width="100" height="100">
                     <a href="mailto:info@aromasdelbosque.com">info@aromasdelbosque.com</a>
                 </div>
             </div>
         </div>
-        <!--Barra de Navegación-->
+
         <nav id="nav-bar">
             <ul>
                 <li class="link"><a href="../index.html">Inicio</a></li>
                 <li class="link"><a href="#" id="act">Productos</a></li>
-                <li class="link"><a href="presupuesto.html">Información</a></li>
+                <li class="link"><a href="presupuesto.html">Presupuesto</a></li>
                 <li class="link"><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
-    <!--Contenido Principal-->
-    <main>
-        <!-- Contenedor de galería dinámica: las tarjetas se generan desde JSON. -->
-        <div id="grid-galery" class="grid">
-        </div>
-        <!-- Script que carga productos y pinta tarjetas. -->
+
+    <main class="gallery-main">
+        <section class="galeria-seccion" aria-labelledby="titulo-galeria">
+            <h1 id="titulo-galeria">Galería de Productos</h1>
+            <p class="intro-galeria">Haz clic sobre cualquier producto para verlo ampliado y navegar por la colección.</p>
+            <div id="grid-galery" class="grid"></div>
+        </section>
+
+        <section id="modal-galeria" class="modal-galeria" aria-hidden="true" aria-labelledby="modal-galeria-titulo"
+            role="dialog">
+            <div class="modal-contenido">
+                <button id="cerrar-modal" class="modal-cerrar" type="button" aria-label="Cerrar galería">&times;</button>
+                <figure class="modal-figura">
+                    <img id="modal-galeria-img" src="../assets/galery/Galeria/g1.png"
+                        alt="Vista previa de producto seleccionado" width="900" height="900">
+                    <figcaption>
+                        <h2 id="modal-galeria-titulo">Producto seleccionado</h2>
+                        <p id="modal-galeria-precio">Precio disponible al abrir la previsualización.</p>
+                    </figcaption>
+                </figure>
+                <div class="modal-controles">
+                    <button id="modal-anterior" type="button" aria-label="Producto anterior">Anterior</button>
+                    <button id="modal-siguiente" type="button" aria-label="Producto siguiente">Siguiente</button>
+                </div>
+            </div>
+        </section>
+
         <script src="../js/galery.js"></script>
     </main>
-    <!--Pie de Página-->
+
     <footer>
-        <!--Enlace al inicio-->
         <div id="inicio">
             <a href="#">
-                <img src="../assets/brand/4.png" alt="Nombre de la empresa" title="Aroma del Bosque" width="200"
+                <img src="../assets/brand/4.png" alt="Nombre de la empresa" title="Aromas del Bosque" width="200"
                     height="200">
             </a>
         </div>
-        <!--Redes Sociales y contacto-->
+
         <div id="redes-contacto">
-            <!--Redes-->
             <div class="redes">
                 <ul>
-                    <li><a href="instagram.com">
-                            <img src="../assets/icons/instagram-svgrepo-com.svg" alt="Enlace a Instagram"
-                                title="logo de instagram" width="100" height="100">
+                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Ir a Instagram">
+                            <img src="../assets/icons/instagram-svgrepo-com.svg" alt="Instagram" title="Instagram"
+                                width="100" height="100">
                         </a></li>
-                    <li><a href="whatsapp.com">
-                            <img src="../assets/icons/whatsapp-svgrepo-com.svg" alt="Enlace a WhatsApp"
-                                title="logo de whatsapp" width="100" height="100">
+                    <li><a href="https://wa.me/34654987321" target="_blank" rel="noopener noreferrer"
+                            aria-label="Ir a WhatsApp">
+                            <img src="../assets/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" title="WhatsApp"
+                                width="100" height="100">
                         </a></li>
                 </ul>
             </div>
-            <!--Contacto-->
+
             <div class="contacto">
                 <div class="tel">
-                    <img src="../assets/icons/phone-svgrepo-com.svg" alt="icono de teléfono" title="icono de teléfono"
+                    <img src="../assets/icons/phone-svgrepo-com.svg" alt="Icono de teléfono" title="Icono de teléfono"
                         width="100" height="100">
                     <a href="tel:+34654987321">+34 654 987 321</a>
                 </div>
                 <div class="mail">
-                    <img src="../assets/icons/mail-alt-2-svgrepo-com.svg" alt="icono de correo electrónico"
-                        title="icono de correo electrónico" width="100" height="100">
+                    <img src="../assets/icons/mail-alt-2-svgrepo-com.svg" alt="Icono de correo electrónico"
+                        title="Icono de correo electrónico" width="100" height="100">
                     <a href="mailto:info@aromasdelbosque.com">info@aromasdelbosque.com</a>
                 </div>
             </div>
         </div>
-        <img src="../assets/brand/3.png" alt="Nombre de la empresa" title="Aroma del Bosque" width="200" height="200">
+
+        <img src="../assets/brand/3.png" alt="Isotipo de la marca" title="Aromas del Bosque" width="200" height="200">
         <p>&copy; 2025 Aromas del Bosque. Todos los derechos reservados.</p>
     </footer>
 </body>

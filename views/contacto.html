@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aromas del Bosque</title>
     <link rel="shortcut icon" href="../assets/icons/icon-logo.svg" type="image/x-icon">
-    <!-- Hoja global + hoja específica de contacto. -->
     <link rel="stylesheet" href="../style/general.css">
-    <link rel="stylesheet" href="../style/4.css">
-    <!-- Leaflet: librería de mapas para OpenStreetMap. -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
@@ -23,13 +20,13 @@
             </div>
             <div class="contacto">
                 <div class="tel">
-                    <img src="../assets/icons/phone-svgrepo-com.svg" alt="icono de teléfono" title="icono de teléfono"
+                    <img src="../assets/icons/phone-svgrepo-com.svg" alt="Icono de teléfono" title="Icono de teléfono"
                         width="100" height="100">
                     <a href="tel:+34654987321">+34 654 987 321</a>
                 </div>
                 <div class="mail">
-                    <img src="../assets/icons/mail-alt-2-svgrepo-com.svg" alt="icono de correo electrónico"
-                        title="icono de correo electrónico" width="100" height="100">
+                    <img src="../assets/icons/mail-alt-2-svgrepo-com.svg" alt="Icono de correo electrónico"
+                        title="Icono de correo electrónico" width="100" height="100">
                     <a href="mailto:info@aromasdelbosque.com">info@aromasdelbosque.com</a>
                 </div>
             </div>
@@ -37,7 +34,7 @@
 
         <nav id="nav-bar">
             <ul>
-                <li class="link"><a href="../index.html">Home</a></li>
+                <li class="link"><a href="../index.html">Inicio</a></li>
                 <li class="link"><a href="galeria.html">Productos</a></li>
                 <li class="link"><a href="presupuesto.html">Presupuesto</a></li>
                 <li class="link"><a href="#" id="act">Contacto</a></li>
@@ -45,24 +42,24 @@
         </nav>
     </header>
 
-    <main>
+    <main class="contact-main">
         <h1>Contacto</h1>
         <div class="contenedor">
             <aside class="contact-info">
-                <p><strong>Empresa:</strong> Aromas del Bosque</p>
-                <p><strong>Dirección:</strong> Calle de Atocha 27, 28012, Madrid, España</p>
-                <p><strong>Teléfono:</strong> +34 654 987 321</p>
-                <p><strong>Email:</strong> info@aromasdelbosque.com</p>
-                <p><strong>Horario:</strong> Lunes a viernes, 09:00 - 19:00</p>
+                <p><span class="dato-label">Empresa:</span> Aromas del Bosque</p>
+                <p><span class="dato-label">Dirección:</span> Calle de Atocha 27, 28012, Madrid, España</p>
+                <p><span class="dato-label">Teléfono:</span> +34 654 987 321</p>
+                <p><span class="dato-label">Email:</span> info@aromasdelbosque.com</p>
+                <p><span class="dato-label">Horario:</span> Lunes a viernes, 09:00 - 19:00</p>
             </aside>
 
-            <!-- Panel interactivo: mapa + formulario de cálculo de ruta. -->
-            <section class="map-panel">
+            <section class="map-panel" aria-labelledby="titulo-rutas">
+                <h2 id="titulo-rutas" class="sr-only">Mapa y cálculo de ruta</h2>
                 <div id="map"></div>
 
                 <div class="ruta-info">
                     <label for="origen">Tu ubicación (dirección):</label>
-                    <input type="text" id="origen" placeholder="Ejemplo: Gran Via 25, Madrid">
+                    <input type="text" id="origen" placeholder="Ejemplo: Gran Vía 25, Madrid">
                     <div class="botones-ruta">
                         <button id="calcularRuta" type="button">Calcular ruta por dirección</button>
                         <button id="usarUbicacion" type="button">Usar mi ubicación actual</button>
@@ -76,7 +73,7 @@
     <footer>
         <div id="inicio">
             <a href="#">
-                <img src="../assets/brand/4.png" alt="Nombre de la empresa" title="Aroma del Bosque" width="200"
+                <img src="../assets/brand/4.png" alt="Nombre de la empresa" title="Aromas del Bosque" width="200"
                     height="200">
             </a>
         </div>
@@ -84,36 +81,37 @@
         <div id="redes-contacto">
             <div class="redes">
                 <ul>
-                    <li><a href="instagram.com">
-                            <img src="../assets/icons/instagram-svgrepo-com.svg" alt="Enlace a Instagram"
-                                title="logo de instagram" width="100" height="100">
+                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Ir a Instagram">
+                            <img src="../assets/icons/instagram-svgrepo-com.svg" alt="Instagram" title="Instagram"
+                                width="100" height="100">
                         </a></li>
-                    <li><a href="whatsapp.com">
-                            <img src="../assets/icons/whatsapp-svgrepo-com.svg" alt="Enlace a WhatsApp"
-                                title="logo de whatsapp" width="100" height="100">
+                    <li><a href="https://wa.me/34654987321" target="_blank" rel="noopener noreferrer"
+                            aria-label="Ir a WhatsApp">
+                            <img src="../assets/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" title="WhatsApp"
+                                width="100" height="100">
                         </a></li>
                 </ul>
             </div>
 
             <div class="contacto">
                 <div class="tel">
-                    <img src="../assets/icons/phone-svgrepo-com.svg" alt="icono de teléfono" title="icono de teléfono"
+                    <img src="../assets/icons/phone-svgrepo-com.svg" alt="Icono de teléfono" title="Icono de teléfono"
                         width="100" height="100">
                     <a href="tel:+34654987321">+34 654 987 321</a>
                 </div>
                 <div class="mail">
-                    <img src="../assets/icons/mail-alt-2-svgrepo-com.svg" alt="icono de correo electrónico"
-                        title="icono de correo electrónico" width="100" height="100">
+                    <img src="../assets/icons/mail-alt-2-svgrepo-com.svg" alt="Icono de correo electrónico"
+                        title="Icono de correo electrónico" width="100" height="100">
                     <a href="mailto:info@aromasdelbosque.com">info@aromasdelbosque.com</a>
                 </div>
             </div>
         </div>
 
-        <img src="../assets/brand/3.png" alt="Nombre de la empresa" title="Aroma del Bosque" width="200" height="200">
+        <img src="../assets/brand/3.png" alt="Isotipo de la marca" title="Aromas del Bosque" width="200" height="200">
         <p>&copy; 2025 Aromas del Bosque. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Leaflet + lógica de rutas de la página de contacto. -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="../js/contacto.js"></script>
